@@ -1,0 +1,189 @@
+'use client'
+
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { useForm } from 'react-hook-form'
+import { Send, CheckCircle, Shield, Clock, MessageCircle } from 'lucide-react'
+import { LEVEL_OPTIONS, WHATSAPP_URL } from '@/lib/constants'
+
+interface FormData {
+  name: string
+  phone: string
+  email: string
+  level: string
+  message: string
+}
+
+export default function LandingContact({
+  defaultLevel,
+  headline = 'השאירו פרטים ונחזור אליכם תוך שעות',
+}: {
+  defaultLevel?: string
+  headline?: string
+}) {
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>({
+    defaultValues: { level: defaultLevel || '' },
+  })
+
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (res.ok) {
+        setIsSubmitted(true)
+        reset()
+      }
+    } catch {
+      alert('שגיאה בשליחת הטופס. אנא נסו שוב או צרו קשר בוואטסאפ.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <section id="contact" className="py-16 px-4 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-background-secondary to-white">
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231e3a5f' stroke-width='0.5'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3Cline x1='0' y1='30' x2='60' y2='30'/%3E%3Cline x1='30' y1='0' x2='30' y2='60'/%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+      </div>
+
+      <div className="max-w-xl mx-auto relative z-10">
+        <motion.div
+          className="text-center mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">צור קשר</h2>
+          <p className="text-text-light">{headline}</p>
+        </motion.div>
+
+        <motion.div
+          className="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-100"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          {isSubmitted ? (
+            <motion.div
+              className="text-center py-8"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+            >
+              <CheckCircle className="w-16 h-16 text-accent mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-primary mb-2">הטופס נשלח בהצלחה!</h3>
+              <p className="text-text-light">נחזור אליך בהקדם. תודה!</p>
+            </motion.div>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-text mb-1">שם מלא *</label>
+                  <input
+                    id="name"
+                    type="text"
+                    {...register('name', { required: 'שדה חובה' })}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+                    placeholder="הכנס את שמך"
+                  />
+                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-text mb-1">טלפון *</label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    dir="ltr"
+                    {...register('phone', { required: 'שדה חובה', pattern: { value: /^[0-9+\-() ]{9,15}$/, message: 'מספר לא תקין' } })}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors text-left"
+                    placeholder="050-000-0000"
+                  />
+                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="level" className="block text-sm font-medium text-text mb-1">רמת לימוד</label>
+                <select
+                  id="level"
+                  {...register('level')}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors bg-white"
+                >
+                  {LEVEL_OPTIONS.map((opt) => (
+                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-text mb-1">הודעה (אופציונלי)</label>
+                <textarea
+                  id="message"
+                  rows={2}
+                  {...register('message')}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors resize-none"
+                  placeholder="ספרו לנו קצת..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="cta-glow w-full bg-accent hover:bg-accent-dark text-white py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isSubmitting ? 'שולח...' : (
+                  <><Send className="w-5 h-5" />שליחה — שיעור ניסיון במחיר מוזל</>
+                )}
+              </button>
+
+              <div className="flex items-center justify-center gap-5 pt-1">
+                <div className="flex items-center gap-1.5 text-text-lighter text-xs">
+                  <Shield className="w-3.5 h-3.5" />
+                  <span>ללא התחייבות</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-text-lighter text-xs">
+                  <Clock className="w-3.5 h-3.5" />
+                  <span>מענה תוך שעות</span>
+                </div>
+              </div>
+            </form>
+          )}
+        </motion.div>
+
+        {/* WhatsApp alternative */}
+        <motion.div
+          className="text-center mt-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <p className="text-text-lighter text-sm mb-2">או דברו איתנו ישירות</p>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-all hover:scale-105"
+          >
+            <MessageCircle className="w-5 h-5" />
+            WhatsApp
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  )
+}

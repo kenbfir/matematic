@@ -126,7 +126,7 @@ export default function Hero() {
             href="#contact"
             className="cta-glow bg-accent hover:bg-accent-dark text-white px-10 py-4 rounded-xl text-lg font-bold transition-all hover:scale-105 flex items-center gap-2"
           >
-            שיעור ניסיון חינם
+            שיעור ניסיון במחיר מוזל
             <ArrowLeft className="w-5 h-5" />
           </a>
           <a

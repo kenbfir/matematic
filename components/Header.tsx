@@ -30,7 +30,7 @@ export default function Header() {
             href="#contact"
             className="bg-accent hover:bg-accent-dark text-white px-5 py-2 rounded-lg font-medium text-sm transition-colors"
           >
-            שיעור ניסיון חינם
+            שיעור ניסיון במחיר מוזל
           </a>
         </nav>
 
@@ -63,7 +63,7 @@ export default function Header() {
               className="bg-accent hover:bg-accent-dark text-white px-5 py-3 rounded-lg font-medium text-center transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              שיעור ניסיון חינם
+              שיעור ניסיון במחיר מוזל
             </a>
           </div>
         </nav>

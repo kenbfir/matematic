@@ -275,7 +275,7 @@ export default function ContactForm() {
                 </p>
                 <div className="flex items-center gap-2 text-accent text-sm font-medium">
                   <CheckCircle className="w-4 h-4" />
-                  <span>45 דקות מלאות</span>
+                  <span>שעה מלאה</span>
                 </div>
               </div>
             </div>
