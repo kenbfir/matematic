@@ -17,3 +17,19 @@ model Lead {
   createdAt DateTime @default(now())
 }
 
+model ScannedPost {
+  id               Int      @id @default(autoincrement())
+  source           String
+  sourceGroup      String
+  sourceUrl        String
+  emailMessageId   String   @unique
+  postContent      String
+  isRelevant       Boolean
+  confidence       Float
+  category         String
+  reasoning        String
+  suggestedReply   String
+  notificationSent Boolean  @default(false)
+  createdAt        DateTime @default(now())
+}
+

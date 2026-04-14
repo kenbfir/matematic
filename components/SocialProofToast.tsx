@@ -47,14 +47,14 @@ export default function SocialProofToast() {
           animate={{ opacity: 1, x: 0, y: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-          className="fixed bottom-24 right-6 z-40 bg-white rounded-xl shadow-xl border border-gray-100 px-4 py-3 flex items-center gap-3 max-w-[280px]"
+          className="hidden md:flex fixed bottom-24 right-6 z-40 bg-white rounded-xl shadow-xl border border-gray-100 px-4 py-3 items-center gap-3 max-w-[280px]"
         >
-          <div className="w-9 h-9 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
-            <Users className="w-4 h-4 text-accent" />
+          <div className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+            <Users className="w-4 h-4 text-primary" />
           </div>
           <div>
             <p className="text-sm font-medium text-text">{MESSAGES[messageIndex]}</p>
-            <p className="text-xs text-text-lighter">LevelUp Math</p>
+            <p className="text-xs text-text-lighter">Math+</p>
           </div>
         </motion.div>
       )}

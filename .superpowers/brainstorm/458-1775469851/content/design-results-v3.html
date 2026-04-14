@@ -1,0 +1,187 @@
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800;900&display=swap" rel="stylesheet">
+
+<h2>Section 2: Results — RTL Fixed, No Arrows</h2>
+<p class="subtitle">All three options now read right-to-left. Arrow replaced with different visual connectors.</p>
+
+<div class="options">
+
+  <!-- Option A: Strikethrough before, big after -->
+  <div class="option" data-choice="strikethrough" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Strikethrough Old Score</h3>
+      <p>The old score is crossed out and faded — the new score is big and bold next to it. Like correcting a test. Reads naturally RTL.</p>
+      <div class="mockup" style="margin-top: 16px;">
+        <div class="mockup-header">Mobile View</div>
+        <div class="mockup-body" style="background: #f8faf9; padding: 32px 20px; font-family: 'Heebo', sans-serif; direction: rtl;">
+          <div style="text-align: center; margin-bottom: 24px;">
+            <div style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #134e4a;">תוצאות מוכחות</div>
+          </div>
+
+          <div style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e8f0ee; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-size: 14px; font-weight: 600; color: #134e4a;">יעל כ.</div>
+              <div style="font-size: 12px; color: #94a3b8;">בגרות 4 יח׳</div>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 10px;">
+              <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 700; color: #cbd5e1; text-decoration: line-through;">62</span>
+              <span style="font-family: 'Rubik', sans-serif; font-size: 38px; font-weight: 900; color: #0f766e; line-height: 1;">89</span>
+            </div>
+          </div>
+
+          <div style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e8f0ee; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-size: 14px; font-weight: 600; color: #134e4a;">תומר א.</div>
+              <div style="font-size: 12px; color: #94a3b8;">בגרות 3 יח׳</div>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 10px;">
+              <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 700; color: #cbd5e1; text-decoration: line-through;">54</span>
+              <span style="font-family: 'Rubik', sans-serif; font-size: 38px; font-weight: 900; color: #0f766e; line-height: 1;">85</span>
+            </div>
+          </div>
+
+          <div style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e8f0ee; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-size: 14px; font-weight: 600; color: #134e4a;">איתי ג.</div>
+              <div style="font-size: 12px; color: #94a3b8;">כיתה ט׳</div>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 10px;">
+              <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 700; color: #cbd5e1; text-decoration: line-through;">58</span>
+              <span style="font-family: 'Rubik', sans-serif; font-size: 38px; font-weight: 900; color: #0f766e; line-height: 1;">82</span>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 16px; padding: 14px; background: #0f766e; border-radius: 12px;">
+            <span style="font-family: 'Rubik', sans-serif; font-size: 26px; font-weight: 900; color: #eab308;">+25</span>
+            <span style="font-size: 14px; font-weight: 600; color: white; margin-right: 6px;">נקודות שיפור בממוצע</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B: Stacked before/after with divider -->
+  <div class="option" data-choice="stacked" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Stacked — Before on Top, After Below</h3>
+      <p>Old score small and faded on top, a thin gold line divides, big new score below. Like a report card transformation.</p>
+      <div class="mockup" style="margin-top: 16px;">
+        <div class="mockup-header">Mobile View</div>
+        <div class="mockup-body" style="background: #0f766e; padding: 32px 20px; font-family: 'Heebo', sans-serif; direction: rtl;">
+          <div style="text-align: center; margin-bottom: 24px;">
+            <div style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: white;">תוצאות מוכחות</div>
+            <div style="font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 4px;">שיפור ממוצע של 25 נקודות</div>
+          </div>
+
+          <div style="display: flex; gap: 10px; justify-content: center;">
+            <!-- Card 1 -->
+            <div style="background: white; border-radius: 16px; padding: 20px 16px; text-align: center; flex: 1; max-width: 110px;">
+              <div style="font-size: 12px; font-weight: 600; color: #134e4a; margin-bottom: 10px;">יעל כ.</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 18px; font-weight: 700; color: #cbd5e1;">62</div>
+              <div style="width: 24px; height: 2px; background: #eab308; border-radius: 2px; margin: 8px auto;"></div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 36px; font-weight: 900; color: #0f766e; line-height: 1;">89</div>
+              <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;">4 יח׳</div>
+            </div>
+            <!-- Card 2 -->
+            <div style="background: white; border-radius: 16px; padding: 20px 16px; text-align: center; flex: 1; max-width: 110px;">
+              <div style="font-size: 12px; font-weight: 600; color: #134e4a; margin-bottom: 10px;">תומר א.</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 18px; font-weight: 700; color: #cbd5e1;">54</div>
+              <div style="width: 24px; height: 2px; background: #eab308; border-radius: 2px; margin: 8px auto;"></div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 36px; font-weight: 900; color: #0f766e; line-height: 1;">85</div>
+              <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;">3 יח׳</div>
+            </div>
+            <!-- Card 3 -->
+            <div style="background: white; border-radius: 16px; padding: 20px 16px; text-align: center; flex: 1; max-width: 110px;">
+              <div style="font-size: 12px; font-weight: 600; color: #134e4a; margin-bottom: 10px;">איתי ג.</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 18px; font-weight: 700; color: #cbd5e1;">58</div>
+              <div style="width: 24px; height: 2px; background: #eab308; border-radius: 2px; margin: 8px auto;"></div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 36px; font-weight: 900; color: #0f766e; line-height: 1;">82</div>
+              <div style="font-size: 11px; color: #94a3b8; margin-top: 6px;">ט׳</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option C: Gauge/dial style -->
+  <div class="option" data-choice="gauge" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Score Rings</h3>
+      <p>Each student gets a circular ring that fills up — gray for the "before" portion, teal for "after." The improvement is visual and instant.</p>
+      <div class="mockup" style="margin-top: 16px;">
+        <div class="mockup-header">Mobile View</div>
+        <div class="mockup-body" style="background: #f8faf9; padding: 32px 20px; font-family: 'Heebo', sans-serif; direction: rtl;">
+          <div style="text-align: center; margin-bottom: 24px;">
+            <div style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #134e4a;">תוצאות מוכחות</div>
+          </div>
+
+          <div style="display: flex; gap: 12px; justify-content: center;">
+            <!-- Ring 1 -->
+            <div style="text-align: center; flex: 1; max-width: 120px;">
+              <div style="position: relative; width: 90px; height: 90px; margin: 0 auto 10px;">
+                <svg width="90" height="90" viewBox="0 0 90 90">
+                  <!-- Background ring -->
+                  <circle cx="45" cy="45" r="38" fill="none" stroke="#e8f0ee" stroke-width="7"/>
+                  <!-- Before (gray arc) -->
+                  <circle cx="45" cy="45" r="38" fill="none" stroke="#fca5a5" stroke-width="7" stroke-dasharray="${62 * 2.39} 239" stroke-dashoffset="0" transform="rotate(-90 45 45)" opacity="0.4"/>
+                  <!-- After (teal arc) -->
+                  <circle cx="45" cy="45" r="38" fill="none" stroke="#0f766e" stroke-width="7" stroke-dasharray="${89 * 2.39} 239" stroke-dashoffset="0" transform="rotate(-90 45 45)"/>
+                </svg>
+                <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <div style="font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 900; color: #0f766e; line-height: 1;">89</div>
+                  <div style="font-size: 10px; color: #94a3b8;">מ-62</div>
+                </div>
+              </div>
+              <div style="font-size: 13px; font-weight: 600; color: #134e4a;">יעל כ.</div>
+              <div style="font-size: 11px; color: #94a3b8;">4 יח׳</div>
+            </div>
+            <!-- Ring 2 -->
+            <div style="text-align: center; flex: 1; max-width: 120px;">
+              <div style="position: relative; width: 90px; height: 90px; margin: 0 auto 10px;">
+                <svg width="90" height="90" viewBox="0 0 90 90">
+                  <circle cx="45" cy="45" r="38" fill="none" stroke="#e8f0ee" stroke-width="7"/>
+                  <circle cx="45" cy="45" r="38" fill="none" stroke="#fca5a5" stroke-width="7" stroke-dasharray="${54 * 2.39} 239" stroke-dashoffset="0" transform="rotate(-90 45 45)" opacity="0.4"/>
+                  <circle cx="45" cy="45" r="38" fill="none" stroke="#0f766e" stroke-width="7" stroke-dasharray="${85 * 2.39} 239" stroke-dashoffset="0" transform="rotate(-90 45 45)"/>
+                </svg>
+                <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <div style="font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 900; color: #0f766e; line-height: 1;">85</div>
+                  <div style="font-size: 10px; color: #94a3b8;">מ-54</div>
+                </div>
+              </div>
+              <div style="font-size: 13px; font-weight: 600; color: #134e4a;">תומר א.</div>
+              <div style="font-size: 11px; color: #94a3b8;">3 יח׳</div>
+            </div>
+            <!-- Ring 3 -->
+            <div style="text-align: center; flex: 1; max-width: 120px;">
+              <div style="position: relative; width: 90px; height: 90px; margin: 0 auto 10px;">
+                <svg width="90" height="90" viewBox="0 0 90 90">
+                  <circle cx="45" cy="45" r="38" fill="none" stroke="#e8f0ee" stroke-width="7"/>
+                  <circle cx="45" cy="45" r="38" fill="none" stroke="#fca5a5" stroke-width="7" stroke-dasharray="${58 * 2.39} 239" stroke-dashoffset="0" transform="rotate(-90 45 45)" opacity="0.4"/>
+                  <circle cx="45" cy="45" r="38" fill="none" stroke="#0f766e" stroke-width="7" stroke-dasharray="${82 * 2.39} 239" stroke-dashoffset="0" transform="rotate(-90 45 45)"/>
+                </svg>
+                <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <div style="font-family: 'Rubik', sans-serif; font-size: 24px; font-weight: 900; color: #0f766e; line-height: 1;">82</div>
+                  <div style="font-size: 10px; color: #94a3b8;">מ-58</div>
+                </div>
+              </div>
+              <div style="font-size: 13px; font-weight: 600; color: #134e4a;">איתי ג.</div>
+              <div style="font-size: 11px; color: #94a3b8;">כיתה ט׳</div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 20px; padding: 14px; background: #0f766e; border-radius: 12px;">
+            <span style="font-family: 'Rubik', sans-serif; font-size: 26px; font-weight: 900; color: #eab308;">+25</span>
+            <span style="font-size: 14px; font-weight: 600; color: white; margin-right: 6px;">נקודות שיפור בממוצע</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top: 24px;">A = strikethrough old score, B = stacked cards with gold divider, C = circular score rings. Pick one!</p>

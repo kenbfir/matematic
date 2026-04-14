@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Target, Monitor, TrendingUp, Heart } from 'lucide-react'
-import { DIFFERENTIATORS } from '@/lib/constants'
+import { Target, Monitor, TrendingUp, Heart, MessageCircle } from 'lucide-react'
+import { DIFFERENTIATORS, WHATSAPP_URL } from '@/lib/constants'
 
 const iconMap = {
   Target,
@@ -48,7 +48,7 @@ export default function About() {
                 <div className="relative w-72 h-80 md:w-80 md:h-[420px] rounded-3xl overflow-hidden border-4 border-accent/20 shadow-2xl">
                   <Image
                     src="/images/ben.jpg"
-                    alt="בן כפיר — מורה פרטי למתמטיקה"
+                    alt="בן כפיר - מורה פרטי למתמטיקה"
                     fill
                     className="object-cover group-hover:scale-105 transition duration-500"
                     priority
@@ -57,7 +57,7 @@ export default function About() {
 
                 {/* Badge */}
                 <motion.div
-                  className="absolute -bottom-4 -left-4 bg-accent text-white text-sm font-bold px-4 py-2 rounded-full shadow-xl"
+                  className="absolute -bottom-4 -left-4 bg-accent text-gray-900 text-sm font-bold px-4 py-2 rounded-full shadow-xl"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
@@ -75,18 +75,18 @@ export default function About() {
               {/* Highlight card */}
               <div>
                 <p>
-                  כשהייתי בתיכון, הייתי נכשל ב-3 יחידות מתמטיקה. המתמטיקה גרמה לי לחרדה ולתסכול — הרגשתי שזה פשוט לא בשבילי.
+                  כשהייתי בתיכון, מתמטיקה הייתה השוביר שלי. 3 יחידות, ציונים בינוניים, ותחושה שזה פשוט לא בשבילי.
                 </p>
               </div>
 
               <p>
-                עד שיום אחד החלטתי לעשות שינוי.
+                ואז הבנתי שאין לי עניין עם המתמטיקה - יש לי עניין עם הדרך שלימדו אותי אותה.
               </p>
 
               <p>
-                למדתי המון, גיליתי את השיטות שעובדות בשבילי, והצלחתי לעלות מ-3 ל-4 ל-5 יחידות תוך שנה.
+                התחלתי לפרק כל נושא לחתיכות קטנות שאפשר לעכל, מצאתי את הסדר הנכון, והצלחתי לעלות מ-3 ל-4 ל-5 יחידות תוך שנה.
                 <span className="block mt-2 font-bold text-primary text-xl">
-                  חודשיים לפני הבגרות עברתי ל-5 יחידות — וקיבלתי 100.
+                  חודשיים לפני הבגרות עברתי ל-5 יחידות - וקיבלתי 100.
                 </span>
               </p>
 
@@ -98,12 +98,22 @@ export default function About() {
 
               <div className="bg-accent/5 border border-accent/10 rounded-2xl p-6">
                 <p className="font-medium">
-                  בזכות המסע הזה, אני מבין בדיוק מה עובר על תלמיד שמתקשה — פחד, לחץ, חוסר ביטחון.
+                  בזכות המסע הזה, אני מבין בדיוק מה עובר על תלמיד שמתקשה - פחד, לחץ, חוסר ביטחון.
                 </p>
                 <p className="mt-3 font-bold text-primary">
-                  אני לא רק מלמד מתמטיקה — אני מלמד איך ללמוד בלי פחד.
+                  אני לא רק מלמד מתמטיקה - אני מלמד איך ללמוד בלי פחד.
                 </p>
               </div>
+
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-all hover:scale-105"
+              >
+                <MessageCircle className="w-5 h-5" />
+                דברו איתי בוואטסאפ
+              </a>
 
             </div>
           </div>
@@ -117,7 +127,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           <h2 className="text-section text-primary mb-4">
-            למה LevelUp?
+            למה Math+?
           </h2>
         </motion.div>
 

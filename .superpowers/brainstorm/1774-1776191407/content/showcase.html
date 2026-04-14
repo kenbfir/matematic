@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Math+ — מה נבנה</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #0f172a; color: #e2e8f0; direction: rtl; padding: 32px 24px; }
+
+  h1 { font-size: 26px; font-weight: bold; color: #fff; margin-bottom: 6px; }
+  .subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 36px; }
+
+  .section { margin-bottom: 40px; }
+  .section-title { font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #4ade80; margin-bottom: 14px; border-bottom: 1px solid #1e293b; padding-bottom: 8px; }
+
+  .cards { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Component card */
+  .comp-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 16px 18px;
+    width: 220px;
+  }
+  .comp-name { font-size: 13px; font-weight: bold; color: #fff; margin-bottom: 4px; }
+  .comp-file { font-size: 11px; color: #64748b; font-family: monospace; margin-bottom: 8px; }
+  .comp-desc { font-size: 12px; color: #94a3b8; line-height: 1.5; }
+  .badge { display: inline-block; font-size: 10px; font-weight: bold; padding: 2px 7px; border-radius: 20px; margin-bottom: 8px; }
+  .badge-new { background: #064e3b; color: #4ade80; border: 1px solid #166534; }
+  .badge-modified { background: #1e1b4b; color: #818cf8; border: 1px solid #3730a3; }
+
+  /* Page card */
+  .page-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 18px 20px;
+    width: 280px;
+  }
+  .page-url { font-size: 12px; font-family: monospace; color: #4ade80; margin-bottom: 6px; }
+  .page-title { font-size: 14px; font-weight: bold; color: #fff; margin-bottom: 10px; }
+  .section-list { list-style: none; }
+  .section-list li { font-size: 11px; color: #94a3b8; padding: 3px 0; display: flex; align-items: center; gap-6px; }
+  .section-list li::before { content: "✓"; color: #4ade80; margin-left: 6px; font-size: 10px; }
+
+  /* Ad card */
+  .ad-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 16px 18px;
+    width: 200px;
+  }
+  .ad-platform { font-size: 20px; margin-bottom: 6px; }
+  .ad-name { font-size: 13px; font-weight: bold; color: #fff; margin-bottom: 4px; }
+  .ad-formats { font-size: 11px; color: #94a3b8; line-height: 1.6; }
+  .ad-link { display: inline-block; margin-top: 10px; font-size: 11px; color: #60a5fa; text-decoration: none; }
+  .ad-link:hover { text-decoration: underline; }
+
+  /* Stat row */
+  .stats { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; }
+  .stat { text-align: center; background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 16px 24px; }
+  .stat-value { font-size: 28px; font-weight: bold; color: #4ade80; }
+  .stat-label { font-size: 12px; color: #64748b; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<h1>Math+ — מה נבנה היום</h1>
+<p class="subtitle">סיכום מלא של כל מה שנוצר בסשן הזה</p>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat"><div class="stat-value">4</div><div class="stat-label">קומפוננטות חדשות</div></div>
+  <div class="stat"><div class="stat-value">3</div><div class="stat-label">דפי נחיתה שנבנו מחדש</div></div>
+  <div class="stat"><div class="stat-value">6</div><div class="stat-label">פלטפורמות פרסום</div></div>
+  <div class="stat"><div class="stat-value">9</div><div class="stat-label">commits</div></div>
+</div>
+
+<!-- New Components -->
+<div class="section">
+  <div class="section-title">קומפוננטות חדשות</div>
+  <div class="cards">
+
+    <div class="comp-card">
+      <span class="badge badge-new">חדש</span>
+      <div class="comp-name">UrgencyStrip</div>
+      <div class="comp-file">components/UrgencyStrip.tsx</div>
+      <div class="comp-desc">סרגל דחיפות sticky בראש הדף — "נשארו X מקומות לחודש [Y]". מתעדכן דרך props ידנית כל חודש.</div>
+    </div>
+
+    <div class="comp-card">
+      <span class="badge badge-new">חדש</span>
+      <div class="comp-name">LandingStats</div>
+      <div class="comp-file">components/LandingStats.tsx</div>
+      <div class="comp-desc">רצועת הוכחה חברתית: 100+ תלמידים / 25 נקודות שיפור / 90% שיפרו / 4+ שנות ניסיון. מתחת לכל hero.</div>
+    </div>
+
+    <div class="comp-card">
+      <span class="badge badge-new">חדש</span>
+      <div class="comp-name">TrialCTABlock</div>
+      <div class="comp-file">components/TrialCTABlock.tsx</div>
+      <div class="comp-desc">סקשן CTA אמצעי: "שיעור ניסיון ב-₪99 בלבד" + 3 תגי אמון + כפתורי טופס ו-WhatsApp.</div>
+    </div>
+
+    <div class="comp-card">
+      <span class="badge badge-new">חדש</span>
+      <div class="comp-name">LandingFAQ</div>
+      <div class="comp-file">components/LandingFAQ.tsx</div>
+      <div class="comp-desc">אקורדיון שאלות ונפוצות עם אנימציה. מקבל items[] כ-prop — שאלות שונות לכל דף נחיתה.</div>
+    </div>
+
+    <div class="comp-card">
+      <span class="badge badge-modified">שונה</span>
+      <div class="comp-name">LandingContact</div>
+      <div class="comp-file">components/LandingContact.tsx</div>
+      <div class="comp-desc">צומצם מ-5 שדות ל-3 בלבד: שם + טלפון + רמת לימוד. מבוסס על מחקר: +20–35% השלמות טפסים.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Landing Pages -->
+<div class="section">
+  <div class="section-title">דפי נחיתה — נבנו מחדש</div>
+  <div class="cards">
+
+    <div class="page-card">
+      <div class="page-url">/bagrut</div>
+      <div class="page-title">הכנה לבגרות במתמטיקה</div>
+      <ul class="section-list">
+        <li>UrgencyStrip — "נשארו 3 מקומות למאי"</li>
+        <li>Hero — "להיכנס לבחינה בביטחון מלא"</li>
+        <li>LandingStats — 4 מספרים</li>
+        <li>Benefits — 6 כרטיסים תוצאה-מונחית</li>
+        <li>Testimonials — WhatsApp style</li>
+        <li>TrialCTABlock — ₪99 + ערבות</li>
+        <li>FAQ — 5 שאלות בגרות ספציפיות</li>
+        <li>3-field form — שם/טלפון/רמה</li>
+      </ul>
+    </div>
+
+    <div class="page-card">
+      <div class="page-url">/middle-school</div>
+      <div class="page-title">מורה פרטי לחטיבת ביניים</div>
+      <ul class="section-list">
+        <li>UrgencyStrip — "נשארו 3 מקומות למאי"</li>
+        <li>Hero — "הילד שלכם יכול לאהוב מתמטיקה"</li>
+        <li>LandingStats — 4 מספרים</li>
+        <li>Benefits — מוכוון הורים</li>
+        <li>Testimonials — הורים + תלמידים</li>
+        <li>TrialCTABlock — ₪99 + ערבות</li>
+        <li>FAQ — 5 שאלות הורים ספציפיות</li>
+        <li>3-field form — defaultLevel="middle-school"</li>
+      </ul>
+    </div>
+
+    <div class="page-card">
+      <div class="page-url">/academic</div>
+      <div class="page-title">מתמטיקה אקדמית לסטודנטים</div>
+      <ul class="section-list">
+        <li>UrgencyStrip — "נשארו 3 מקומות למאי"</li>
+        <li>Hero — "להבין, לא רק לעבור"</li>
+        <li>LandingStats — 4 מספרים</li>
+        <li>Benefits — מוכוון סטודנטים</li>
+        <li>Testimonials — אינפי/לינארית</li>
+        <li>TrialCTABlock — ₪99 + ערבות</li>
+        <li>FAQ — 5 שאלות אוניברסיטה</li>
+        <li>3-field form — defaultLevel="academic"</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- Ads -->
+<div class="section">
+  <div class="section-title">מודעות — קופי + מוקאפ ויזואלי</div>
+  <div class="cards">
+
+    <div class="ad-card">
+      <div class="ad-platform">🔍</div>
+      <div class="ad-name">Google Search</div>
+      <div class="ad-formats">
+        3 קמפיינים (בגרות / חטב"י / אקדמי)<br>
+        15 כותרות × 3<br>
+        4 תיאורים × 3<br>
+        Sitelinks + Call extension
+      </div>
+      <a class="ad-link" href="file:///C:/Users/KenBfirxd/Desktop/levelup/docs/ads/mockups/google.html" target="_blank">פתח מוקאפ ↗</a>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-platform">📘</div>
+      <div class="ad-name">Facebook</div>
+      <div class="ad-formats">
+        3 מודעות להורים (35–55)<br>
+        Pain hook / עדות / דחיפות<br>
+        Lead Ads → WhatsApp
+      </div>
+      <a class="ad-link" href="file:///C:/Users/KenBfirxd/Desktop/levelup/docs/ads/mockups/facebook.html" target="_blank">פתח מוקאפ ↗</a>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-platform">📸</div>
+      <div class="ad-name">Instagram</div>
+      <div class="ad-formats">
+        3 פורמטים (16–24)<br>
+        Before/After feed<br>
+        Reel script (15s)<br>
+        Carousel עדויות
+      </div>
+      <a class="ad-link" href="file:///C:/Users/KenBfirxd/Desktop/levelup/docs/ads/mockups/instagram.html" target="_blank">פתח מוקאפ ↗</a>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-platform">🎵</div>
+      <div class="ad-name">TikTok</div>
+      <div class="ad-formats">
+        3 סקריפטים (14–22)<br>
+        הסיפור האישי (30s)<br>
+        טיפ מהיר (20s)<br>
+        תגובה לתלמיד (25s)
+      </div>
+      <a class="ad-link" href="file:///C:/Users/KenBfirxd/Desktop/levelup/docs/ads/mockups/tiktok.html" target="_blank">פתח מוקאפ ↗</a>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-platform">🏠</div>
+      <div class="ad-name">Yad2</div>
+      <div class="ad-formats">
+        3 מודעות ממומנות<br>
+        בגרות / חטב"י / אקדמי<br>
+        כולל תמחור ₪99 וקריאה לפעולה
+      </div>
+      <a class="ad-link" href="file:///C:/Users/KenBfirxd/Desktop/levelup/docs/ads/mockups/yad2.html" target="_blank">פתח מוקאפ ↗</a>
+    </div>
+
+    <div class="ad-card">
+      <div class="ad-platform">💬</div>
+      <div class="ad-name">WhatsApp</div>
+      <div class="ad-formats">
+        3 תבניות broadcast<br>
+        דחיפות מקומות<br>
+        הוכחה חברתית<br>
+        עונתי (6 שבועות לבגרות)
+      </div>
+      <a class="ad-link" href="file:///C:/Users/KenBfirxd/Desktop/levelup/docs/ads/mockups/whatsapp.html" target="_blank">פתח מוקאפ ↗</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- Tip -->
+<div style="background:#1e293b; border:1px solid #334155; border-radius:10px; padding:16px 20px; font-size:12px; color:#94a3b8; margin-top:8px;">
+  <strong style="color:#f8fafc;">טיפ:</strong> לעדכן את מספר המקומות כל חודש — שנה את <code style="color:#4ade80;">spotsLeft={3}</code> ו-<code style="color:#4ade80;">month="מאי"</code> בשלושת דפי הנחיתה.
+</div>
+
+</body>
+</html>

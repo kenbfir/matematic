@@ -97,7 +97,7 @@ export default function Hero() {
             <span className="text-white/90 text-sm font-medium">דירוג 5 כוכבים מ-100+ תלמידים</span>
           </div>
           <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2">
-            <span className="text-white text-sm font-bold">⚡ מועד א׳ 2026 — עוד יש זמן להיכנס לפסים</span>
+            <span className="text-white text-sm font-bold">⚡ מועד א׳ 2026 - עוד יש זמן להיכנס לפסים</span>
           </div>
         </motion.div>
 
@@ -107,7 +107,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
-          כל תלמיד יכול להצטיין במתמטיקה —{' '}
+          כל תלמיד יכול להצטיין במתמטיקה -{' '}
           <span className="text-accent">עם המורה הנכון.</span>
         </motion.h1>
 
@@ -117,7 +117,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          שיעורים פרטיים אונליין עם מורה שעלה מ-3 יחידות ל-100 בבגרות —
+          שיעורים פרטיים אונליין עם מורה שעלה מ-3 יחידות ל-100 בבגרות -
           ויודע בדיוק כיצד להוציא את הטוב ביותר מכל תלמיד.
         </motion.p>
 

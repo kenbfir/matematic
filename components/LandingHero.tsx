@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { ArrowLeft, Star, CheckCircle } from 'lucide-react'
 
 interface LandingHeroProps {
@@ -51,64 +52,85 @@ export default function LandingHero({
       </div>
 
       <div className="container-max px-4 relative z-10 pt-8">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          {/* Text content */}
+          <div className="flex-1 text-center lg:text-right">
+            <motion.div
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+            >
+              <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+              <span className="text-white/90 text-sm font-medium">{badge}</span>
+            </motion.div>
+
+            <motion.h1
+              className="text-3xl md:text-5xl text-white font-bold mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {headline}{' '}
+              <span className="text-accent">{highlightedWord}</span>
+            </motion.h1>
+
+            <motion.p
+              className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+            >
+              {subheadline}
+            </motion.p>
+
+            {/* Key benefits */}
+            <motion.div
+              className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              {bullets.map((bullet) => (
+                <div key={bullet} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <CheckCircle className="w-4 h-4 text-accent shrink-0" />
+                  <span className="text-white text-sm font-medium">{bullet}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <a
+                href="#contact"
+                className="cta-glow bg-accent hover:bg-accent-dark text-gray-900 px-10 py-4 rounded-xl text-lg font-bold transition-all hover:scale-105 flex items-center gap-2"
+              >
+                {ctaText}
+                <ArrowLeft className="w-5 h-5" />
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Photo */}
           <motion.div
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8"
+            className="shrink-0"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-            <span className="text-white/90 text-sm font-medium">{badge}</span>
-          </motion.div>
-
-          <motion.h1
-            className="text-3xl md:text-5xl text-white font-bold mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            {headline}{' '}
-            <span className="gradient-text">{highlightedWord}</span>
-          </motion.h1>
-
-          <motion.p
-            className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            {subheadline}
-          </motion.p>
-
-          {/* Key benefits */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-4 mb-10"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            {bullets.map((bullet) => (
-              <div key={bullet} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                <CheckCircle className="w-4 h-4 text-accent shrink-0" />
-                <span className="text-white text-sm font-medium">{bullet}</span>
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <a
-              href="#contact"
-              className="cta-glow bg-accent hover:bg-accent-dark text-white px-10 py-4 rounded-xl text-lg font-bold transition-all hover:scale-105 flex items-center gap-2"
-            >
-              {ctaText}
-              <ArrowLeft className="w-5 h-5" />
-            </a>
+            <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
+              <Image
+                src="/images/ben.jpg"
+                alt="בן כפיר - מורה פרטי למתמטיקה"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </motion.div>
         </div>
       </div>

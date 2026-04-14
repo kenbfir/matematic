@@ -15,7 +15,7 @@ export default function UrgencyStrip({ spotsLeft, month }: UrgencyStripProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      🔥 נשארו {spotsLeft} מקומות בלבד לחודש {month} —{' '}
+      🔥 נשארו {spotsLeft} מקומות בלבד לחודש {month} -{' '}
       <a href="#contact" className="underline hover:no-underline">
         הבטח את המקום שלך עכשיו
       </a>

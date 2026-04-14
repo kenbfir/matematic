@@ -1,4 +1,5 @@
-import { GraduationCap, MessageCircle, Phone, Mail } from 'lucide-react'
+import { MessageCircle, Phone, Mail } from 'lucide-react'
+import Logo from '@/components/Logo'
 import { NAV_LINKS, WHATSAPP_URL, PHONE_NUMBER } from '@/lib/constants'
 
 export default function Footer() {
@@ -8,9 +9,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <GraduationCap className="w-7 h-7 text-accent" />
-              <span className="text-xl font-bold">LevelUp</span>
+            <div className="mb-4">
+              <Logo size="sm" variant="inline" />
             </div>
             <p className="text-white/60 text-sm leading-relaxed">
               שיעורים פרטיים במתמטיקה אונליין.
@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/40">
-          <p>© {new Date().getFullYear()} LevelUp Math — בן כפיר. כל הזכויות שמורות.</p>
+          <p>© {new Date().getFullYear()} Math+ - בן כפיר. כל הזכויות שמורות.</p>
           <a href="#" className="hover:text-white/60 transition-colors">
             מדיניות פרטיות
           </a>

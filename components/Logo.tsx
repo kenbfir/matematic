@@ -24,8 +24,19 @@ export default function Logo({ size = 'md', variant = 'pill' }: LogoProps) {
 
   const inner = (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
-      {/* +Math row — + on the left */}
+      {/* Math+ row */}
       <div dir="ltr" style={{ lineHeight: 1, display: 'inline-flex', alignItems: 'baseline' }}>
+        <span
+          style={{
+            fontFamily: 'Rubik, Heebo, sans-serif',
+            fontSize: mathSize,
+            fontWeight: 900,
+            color: mathColor,
+            letterSpacing: '-0.5px',
+          }}
+        >
+          Math
+        </span>
         <span
           style={{
             fontFamily: 'Rubik, Heebo, sans-serif',
@@ -38,17 +49,6 @@ export default function Logo({ size = 'md', variant = 'pill' }: LogoProps) {
           }}
         >
           +
-        </span>
-        <span
-          style={{
-            fontFamily: 'Rubik, Heebo, sans-serif',
-            fontSize: mathSize,
-            fontWeight: 900,
-            color: mathColor,
-            letterSpacing: '-0.5px',
-          }}
-        >
-          Math
         </span>
       </div>
 

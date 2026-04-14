@@ -9,7 +9,7 @@ const heebo = Heebo({
 })
 
 export const metadata: Metadata = {
-  title: 'LevelUp | מורה פרטי למתמטיקה אונליין — בן כפיר',
+  title: 'Math+ | מורה פרטי למתמטיקה אונליין - בן כפיר',
   description:
     'שיעורים פרטיים במתמטיקה אונליין עם בן כפיר. הכנה לבגרות, חטיבת ביניים, קורסים אקדמיים ותוכנית מצטיינים. שיעור ניסיון במחיר מוזל!',
   keywords: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     'קורס מתמטיקה אקדמי',
   ],
   openGraph: {
-    title: 'LevelUp | מורה פרטי למתמטיקה אונליין — בן כפיר',
+    title: 'Math+ | מורה פרטי למתמטיקה אונליין - בן כפיר',
     description:
       'שיעורים פרטיים במתמטיקה אונליין. הכנה לבגרות, חטיבת ביניים, קורסים אקדמיים. שיעור ניסיון במחיר מוזל!',
     locale: 'he_IL',
@@ -45,7 +45,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'EducationalOrganization',
-              name: 'LevelUp Math',
+              name: 'Math+',
               description: 'שיעורים פרטיים במתמטיקה אונליין',
               founder: {
                 '@type': 'Person',

@@ -1,0 +1,199 @@
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800;900&display=swap" rel="stylesheet">
+
+<h2>Section 2: Results — Simpler Options</h2>
+<p class="subtitle">Three different ways to show before/after. All simpler than bars.</p>
+
+<div class="options">
+
+  <!-- Option A: Big numbers with arrow -->
+  <div class="option" data-choice="big-numbers" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Big Numbers + Arrow</h3>
+      <p>Just the two scores, big and bold, with an arrow between them. No bars, no charts. The numbers speak.</p>
+      <div class="mockup" style="margin-top: 16px;">
+        <div class="mockup-header">Mobile View</div>
+        <div class="mockup-body" style="background: #f8faf9; padding: 32px 20px; font-family: 'Heebo', sans-serif; direction: rtl;">
+          <div style="text-align: center; margin-bottom: 24px;">
+            <div style="font-size: 13px; font-weight: 600; color: #0f766e; letter-spacing: 1px; margin-bottom: 6px;">תוצאות מוכחות</div>
+            <div style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #134e4a;">השינוי שהתלמידים שלנו עברו</div>
+          </div>
+
+          <!-- Card 1 -->
+          <div style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e8f0ee;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+              <div style="text-align: center;">
+                <div style="font-family: 'Rubik', sans-serif; font-size: 36px; font-weight: 900; color: #dc2626; line-height: 1;">62</div>
+                <div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">לפני</div>
+              </div>
+              <div style="font-size: 24px; color: #0f766e;">→</div>
+              <div style="text-align: center;">
+                <div style="font-family: 'Rubik', sans-serif; font-size: 36px; font-weight: 900; color: #0f766e; line-height: 1;">89</div>
+                <div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">אחרי</div>
+              </div>
+              <div style="background: #ecfdf5; color: #0f766e; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-right: 8px;">+27</div>
+            </div>
+            <div style="text-align: center; margin-top: 10px; font-size: 13px; color: #64748b;">יעל כ. · בגרות 4 יח׳</div>
+          </div>
+
+          <!-- Card 2 -->
+          <div style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e8f0ee;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+              <div style="text-align: center;">
+                <div style="font-family: 'Rubik', sans-serif; font-size: 36px; font-weight: 900; color: #dc2626; line-height: 1;">54</div>
+                <div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">לפני</div>
+              </div>
+              <div style="font-size: 24px; color: #0f766e;">→</div>
+              <div style="text-align: center;">
+                <div style="font-family: 'Rubik', sans-serif; font-size: 36px; font-weight: 900; color: #0f766e; line-height: 1;">85</div>
+                <div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">אחרי</div>
+              </div>
+              <div style="background: #ecfdf5; color: #0f766e; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-right: 8px;">+31</div>
+            </div>
+            <div style="text-align: center; margin-top: 10px; font-size: 13px; color: #64748b;">תומר א. · בגרות 3 יח׳</div>
+          </div>
+
+          <!-- Card 3 -->
+          <div style="background: white; border-radius: 16px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e8f0ee;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+              <div style="text-align: center;">
+                <div style="font-family: 'Rubik', sans-serif; font-size: 36px; font-weight: 900; color: #dc2626; line-height: 1;">58</div>
+                <div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">לפני</div>
+              </div>
+              <div style="font-size: 24px; color: #0f766e;">→</div>
+              <div style="text-align: center;">
+                <div style="font-family: 'Rubik', sans-serif; font-size: 36px; font-weight: 900; color: #0f766e; line-height: 1;">82</div>
+                <div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">אחרי</div>
+              </div>
+              <div style="background: #ecfdf5; color: #0f766e; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-right: 8px;">+24</div>
+            </div>
+            <div style="text-align: center; margin-top: 10px; font-size: 13px; color: #64748b;">איתי ג. · כיתה ט׳</div>
+          </div>
+
+          <div style="text-align: center; margin-top: 16px; padding: 14px; background: #0f766e; border-radius: 12px;">
+            <span style="font-family: 'Rubik', sans-serif; font-size: 26px; font-weight: 900; color: #eab308;">+25</span>
+            <span style="font-size: 14px; font-weight: 600; color: white; margin-right: 6px;">נקודות שיפור בממוצע</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B: Horizontal scroll cards -->
+  <div class="option" data-choice="scroll-cards" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Horizontal Scroll Cards</h3>
+      <p>Each student gets a compact card. Cards scroll horizontally on mobile — feels interactive, takes less vertical space.</p>
+      <div class="mockup" style="margin-top: 16px;">
+        <div class="mockup-header">Mobile View</div>
+        <div class="mockup-body" style="background: #0f766e; padding: 32px 0; font-family: 'Heebo', sans-serif; direction: rtl;">
+          <div style="text-align: center; margin-bottom: 24px; padding: 0 20px;">
+            <div style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: white;">תוצאות מוכחות</div>
+            <div style="font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 4px;">שיפור ממוצע של 25 נקודות בציון</div>
+          </div>
+
+          <div style="display: flex; gap: 12px; overflow-x: auto; padding: 0 20px 8px 20px; -webkit-overflow-scrolling: touch;">
+            <!-- Card 1 -->
+            <div style="background: white; border-radius: 16px; padding: 24px 20px; min-width: 160px; text-align: center; flex-shrink: 0;">
+              <div style="font-size: 13px; font-weight: 600; color: #64748b; margin-bottom: 12px;">יעל כ.</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 20px; font-weight: 800; color: #dc2626; text-decoration: line-through; opacity: 0.6;">62</div>
+              <div style="font-size: 20px; color: #0f766e; margin: 4px 0;">↓</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 40px; font-weight: 900; color: #0f766e; line-height: 1;">89</div>
+              <div style="background: #ecfdf5; color: #0f766e; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-top: 8px;">בגרות 4 יח׳</div>
+            </div>
+            <!-- Card 2 -->
+            <div style="background: white; border-radius: 16px; padding: 24px 20px; min-width: 160px; text-align: center; flex-shrink: 0;">
+              <div style="font-size: 13px; font-weight: 600; color: #64748b; margin-bottom: 12px;">תומר א.</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 20px; font-weight: 800; color: #dc2626; text-decoration: line-through; opacity: 0.6;">54</div>
+              <div style="font-size: 20px; color: #0f766e; margin: 4px 0;">↓</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 40px; font-weight: 900; color: #0f766e; line-height: 1;">85</div>
+              <div style="background: #ecfdf5; color: #0f766e; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-top: 8px;">בגרות 3 יח׳</div>
+            </div>
+            <!-- Card 3 -->
+            <div style="background: white; border-radius: 16px; padding: 24px 20px; min-width: 160px; text-align: center; flex-shrink: 0;">
+              <div style="font-size: 13px; font-weight: 600; color: #64748b; margin-bottom: 12px;">איתי ג.</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 20px; font-weight: 800; color: #dc2626; text-decoration: line-through; opacity: 0.6;">58</div>
+              <div style="font-size: 20px; color: #0f766e; margin: 4px 0;">↓</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 40px; font-weight: 900; color: #0f766e; line-height: 1;">82</div>
+              <div style="background: #ecfdf5; color: #0f766e; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-top: 8px;">כיתה ט׳</div>
+            </div>
+            <!-- Card 4 -->
+            <div style="background: white; border-radius: 16px; padding: 24px 20px; min-width: 160px; text-align: center; flex-shrink: 0;">
+              <div style="font-size: 13px; font-weight: 600; color: #64748b; margin-bottom: 12px;">נועה ש.</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 20px; font-weight: 800; color: #0f766e; opacity: 0.6;">—</div>
+              <div style="font-size: 20px; color: #0f766e; margin: 4px 0;">↓</div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 40px; font-weight: 900; color: #0f766e; line-height: 1;">94</div>
+              <div style="background: #ecfdf5; color: #0f766e; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-top: 8px;">בגרות 5 יח׳</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option C: Simple table-like rows -->
+  <div class="option" data-choice="simple-rows" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Clean Rows</h3>
+      <p>Dead simple. Name, before, arrow, after. Like a scoreboard. Scans in 2 seconds.</p>
+      <div class="mockup" style="margin-top: 16px;">
+        <div class="mockup-header">Mobile View</div>
+        <div class="mockup-body" style="background: #f8faf9; padding: 32px 20px; font-family: 'Heebo', sans-serif; direction: rtl;">
+          <div style="text-align: center; margin-bottom: 24px;">
+            <div style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #134e4a;">תוצאות מוכחות</div>
+          </div>
+
+          <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e8f0ee;">
+            <!-- Row 1 -->
+            <div style="display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid #f1f5f4;">
+              <div style="flex: 1; font-size: 14px; font-weight: 600; color: #134e4a;">יעל כ. <span style="color: #94a3b8; font-weight: 400; font-size: 12px;">4 יח׳</span></div>
+              <div style="display: flex; align-items: center; gap: 8px;" dir="ltr">
+                <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #ef4444;">62</span>
+                <span style="color: #0f766e; font-size: 18px;">→</span>
+                <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #0f766e;">89</span>
+              </div>
+            </div>
+            <!-- Row 2 -->
+            <div style="display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid #f1f5f4; background: #fafffe;">
+              <div style="flex: 1; font-size: 14px; font-weight: 600; color: #134e4a;">תומר א. <span style="color: #94a3b8; font-weight: 400; font-size: 12px;">3 יח׳</span></div>
+              <div style="display: flex; align-items: center; gap: 8px;" dir="ltr">
+                <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #ef4444;">54</span>
+                <span style="color: #0f766e; font-size: 18px;">→</span>
+                <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #0f766e;">85</span>
+              </div>
+            </div>
+            <!-- Row 3 -->
+            <div style="display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid #f1f5f4;">
+              <div style="flex: 1; font-size: 14px; font-weight: 600; color: #134e4a;">איתי ג. <span style="color: #94a3b8; font-weight: 400; font-size: 12px;">כיתה ט׳</span></div>
+              <div style="display: flex; align-items: center; gap: 8px;" dir="ltr">
+                <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #ef4444;">58</span>
+                <span style="color: #0f766e; font-size: 18px;">→</span>
+                <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #0f766e;">82</span>
+              </div>
+            </div>
+            <!-- Row 4 -->
+            <div style="display: flex; align-items: center; padding: 16px 20px; background: #fafffe;">
+              <div style="flex: 1; font-size: 14px; font-weight: 600; color: #134e4a;">נועה ש. <span style="color: #94a3b8; font-weight: 400; font-size: 12px;">5 יח׳</span></div>
+              <div style="display: flex; align-items: center; gap: 8px;" dir="ltr">
+                <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #94a3b8;">—</span>
+                <span style="color: #0f766e; font-size: 18px;">→</span>
+                <span style="font-family: 'Rubik', sans-serif; font-size: 22px; font-weight: 800; color: #0f766e;">94</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 16px; padding: 14px; background: #0f766e; border-radius: 12px;">
+            <span style="font-family: 'Rubik', sans-serif; font-size: 26px; font-weight: 900; color: #eab308;">+25</span>
+            <span style="font-size: 14px; font-weight: 600; color: white; margin-right: 6px;">נקודות שיפור בממוצע</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top: 24px;">A = big numbers with arrow, B = horizontal scroll cards on teal, C = clean scoreboard rows. Pick one!</p>

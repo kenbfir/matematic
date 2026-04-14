@@ -23,7 +23,7 @@ export default function LandingTestimonials({ testimonials }: { testimonials: Te
           מה אומרים התלמידים
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={i}

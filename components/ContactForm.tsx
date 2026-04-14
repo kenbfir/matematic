@@ -184,7 +184,7 @@ export default function ContactForm() {
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        שליחה — שיעור ניסיון במחיר מוזל
+                        שליחה - שיעור ניסיון במחיר מוזל
                       </>
                     )}
                   </button>
@@ -258,7 +258,7 @@ export default function ContactForm() {
                 <h3 className="text-lg font-bold mb-2">שיעור ניסיון במחיר מוזל</h3>
                 <p className="text-white/70 text-sm leading-relaxed mb-4">
                   בשיעור ההיכרות נאבחן את הרמה, נבין את הצרכים ונבנה תוכנית לימודים
-                  מותאמת — בלי שום התחייבות.
+                  מותאמת - בלי שום התחייבות.
                 </p>
                 <div className="flex items-center gap-2 text-accent text-sm font-medium">
                   <CheckCircle className="w-4 h-4" />

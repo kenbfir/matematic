@@ -46,7 +46,7 @@ export default function Programs() {
         >
           <h2 className="text-section text-primary mb-4">מסלולי לימוד</h2>
           <p className="text-text-light max-w-2xl mx-auto text-lg">
-            מסלול לימודים מותאם לכל גיל ורמה — מחטיבת ביניים ועד האקדמיה
+            מסלול לימודים מותאם לכל גיל ורמה - מחטיבת ביניים ועד האקדמיה
           </p>
         </motion.div>
 

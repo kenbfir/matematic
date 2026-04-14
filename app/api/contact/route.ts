@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
       })
 
       await transporter.sendMail({
-        from: `"LevelUp — טופס יצירת קשר" <${process.env.SMTP_USER}>`,
+        from: `"LevelUp - טופס יצירת קשר" <${process.env.SMTP_USER}>`,
         to: process.env.EMAIL_TO,
         subject: `פניה חדשה מ${name}`,
         html: `
@@ -47,16 +47,16 @@ export async function POST(request: NextRequest) {
             <table style="width: 100%; border-collapse: collapse;">
               <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">שם</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${name}</td></tr>
               <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">טלפון</td><td style="padding: 8px; border-bottom: 1px solid #eee;" dir="ltr">${phone}</td></tr>
-              <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">אימייל</td><td style="padding: 8px; border-bottom: 1px solid #eee;" dir="ltr">${email || '—'}</td></tr>
-              <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">רמה</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${level || '—'}</td></tr>
-              <tr><td style="padding: 8px; font-weight: bold;">הודעה</td><td style="padding: 8px;">${message || '—'}</td></tr>
+              <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">אימייל</td><td style="padding: 8px; border-bottom: 1px solid #eee;" dir="ltr">${email || '-'}</td></tr>
+              <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">רמה</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${level || '-'}</td></tr>
+              <tr><td style="padding: 8px; font-weight: bold;">הודעה</td><td style="padding: 8px;">${message || '-'}</td></tr>
             </table>
             <p style="color: #64748b; font-size: 12px; margin-top: 16px;">פניה #${lead.id} · ${new Date().toLocaleString('he-IL')}</p>
           </div>
         `,
       })
     } catch (emailError) {
-      // Log email error but don't fail the request — lead is already saved
+      // Log email error but don't fail the request - lead is already saved
       console.error('Failed to send email notification:', emailError)
     }
 

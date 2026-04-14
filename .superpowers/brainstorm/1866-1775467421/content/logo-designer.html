@@ -1,0 +1,243 @@
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<h2>Math+ — Real Logo Concepts</h2>
+<p class="subtitle">Thinking as a logo designer: visual metaphors, custom marks, negative space, storytelling through shape.</p>
+
+<div class="options" data-multiselect>
+
+  <!-- 1: Staircase + (growth/progress) -->
+  <div class="option" data-choice="staircase" onclick="toggleSelect(this)">
+    <div class="letter">1</div>
+    <div class="content">
+      <h3>The Staircase Mark</h3>
+      <p>The + is built from ascending steps — each arm of the plus rises like a staircase. Represents climbing from failure to success. The icon works standalone as a favicon.</p>
+      <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <div style="background: #0f766e; border-radius: 20px; padding: 44px 56px; display: inline-block; text-align: center;">
+          <div style="display: inline-flex; align-items: center; gap: 16px;">
+            <!-- Staircase + icon -->
+            <svg width="56" height="56" viewBox="0 0 56 56">
+              <!-- Vertical arm: ascending blocks -->
+              <rect x="22" y="2" width="12" height="10" rx="2" fill="#eab308" opacity="0.4"/>
+              <rect x="22" y="14" width="12" height="10" rx="2" fill="#eab308" opacity="0.6"/>
+              <rect x="22" y="26" width="12" height="10" rx="2" fill="#eab308" opacity="0.8"/>
+              <rect x="22" y="38" width="12" height="14" rx="2" fill="#eab308"/>
+              <!-- Horizontal arm -->
+              <rect x="2" y="26" width="18" height="10" rx="2" fill="#eab308" opacity="0.5"/>
+              <rect x="36" y="26" width="18" height="10" rx="2" fill="#eab308" opacity="0.9"/>
+              <!-- Glow on tallest block -->
+              <rect x="22" y="38" width="12" height="14" rx="2" fill="#eab308" filter="url(#glow1)"/>
+              <defs><filter id="glow1"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            </svg>
+            <div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 40px; font-weight: 900; color: white; letter-spacing: -1px; line-height: 1; text-align: left;">MathPlus</div>
+              <div style="width: 36px; height: 2.5px; background: #eab308; border-radius: 2px; margin-top: 6px;"></div>
+              <div style="font-family: 'Heebo', sans-serif; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 1px; margin-top: 5px; text-align: right;" dir="rtl">שיעורים פרטיים וליווי במתמטיקה</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; justify-content: center;">
+        <span style="font-size: 12px; color: #888;">Standalone icon:</span>
+        <svg width="36" height="36" viewBox="0 0 56 56" style="background: #0f766e; border-radius: 8px; padding: 4px;">
+          <rect x="22" y="2" width="12" height="10" rx="2" fill="#eab308" opacity="0.4"/>
+          <rect x="22" y="14" width="12" height="10" rx="2" fill="#eab308" opacity="0.6"/>
+          <rect x="22" y="26" width="12" height="10" rx="2" fill="#eab308" opacity="0.8"/>
+          <rect x="22" y="38" width="12" height="14" rx="2" fill="#eab308"/>
+          <rect x="2" y="26" width="18" height="10" rx="2" fill="#eab308" opacity="0.5"/>
+          <rect x="36" y="26" width="18" height="10" rx="2" fill="#eab308" opacity="0.9"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2: Brain/lightbulb + negative space -->
+  <div class="option" data-choice="lightbulb" onclick="toggleSelect(this)">
+    <div class="letter">2</div>
+    <div class="content">
+      <h3>The Lightbulb +</h3>
+      <p>A lightbulb shape where the filament inside forms a +. The "aha moment" — understanding math. The bulb doubles as a head silhouette from the side.</p>
+      <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <div style="background: #0f766e; border-radius: 20px; padding: 44px 56px; display: inline-block; text-align: center;">
+          <div style="display: inline-flex; align-items: center; gap: 16px;">
+            <svg width="52" height="62" viewBox="0 0 52 62">
+              <!-- Bulb outline -->
+              <path d="M26 4 C12 4 4 14 4 26 C4 34 8 40 16 44 L16 50 C16 54 20 56 26 56 C32 56 36 54 36 50 L36 44 C44 40 48 34 48 26 C48 14 40 4 26 4Z" fill="none" stroke="#eab308" stroke-width="2.5" opacity="0.8"/>
+              <!-- Base lines -->
+              <line x1="18" y1="50" x2="34" y2="50" stroke="#eab308" stroke-width="2" opacity="0.5"/>
+              <line x1="20" y1="54" x2="32" y2="54" stroke="#eab308" stroke-width="2" opacity="0.3"/>
+              <!-- + as filament inside -->
+              <line x1="26" y1="16" x2="26" y2="38" stroke="#eab308" stroke-width="3.5" stroke-linecap="round"/>
+              <line x1="16" y1="27" x2="36" y2="27" stroke="#eab308" stroke-width="3.5" stroke-linecap="round"/>
+              <!-- Glow center -->
+              <circle cx="26" cy="27" r="6" fill="#eab308" opacity="0.15"/>
+              <!-- Rays -->
+              <line x1="26" y1="0" x2="26" y2="-2" stroke="#eab308" stroke-width="1.5" opacity="0" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 40px; font-weight: 900; color: white; letter-spacing: -1px; line-height: 1; text-align: left;">MathPlus</div>
+              <div style="width: 36px; height: 2.5px; background: #eab308; border-radius: 2px; margin-top: 6px;"></div>
+              <div style="font-family: 'Heebo', sans-serif; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 1px; margin-top: 5px; text-align: right;" dir="rtl">שיעורים פרטיים וליווי במתמטיקה</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; justify-content: center;">
+        <span style="font-size: 12px; color: #888;">Standalone icon:</span>
+        <div style="background: #0f766e; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="30" viewBox="0 0 52 62">
+            <path d="M26 4 C12 4 4 14 4 26 C4 34 8 40 16 44 L16 50 C16 54 20 56 26 56 C32 56 36 54 36 50 L36 44 C44 40 48 34 48 26 C48 14 40 4 26 4Z" fill="none" stroke="#eab308" stroke-width="3"/>
+            <line x1="26" y1="16" x2="26" y2="38" stroke="#eab308" stroke-width="4" stroke-linecap="round"/>
+            <line x1="16" y1="27" x2="36" y2="27" stroke="#eab308" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3: Open book + pencil forming + -->
+  <div class="option" data-choice="book-pencil" onclick="toggleSelect(this)">
+    <div class="letter">3</div>
+    <div class="content">
+      <h3>The Book & Pencil +</h3>
+      <p>An open book from above — the spine is the vertical line of the +. A pencil crossing it forms the horizontal. Education + math in one clean mark.</p>
+      <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <div style="background: #0f766e; border-radius: 20px; padding: 44px 56px; display: inline-block; text-align: center;">
+          <div style="display: inline-flex; align-items: center; gap: 16px;">
+            <svg width="56" height="56" viewBox="0 0 56 56">
+              <!-- Open book (two curved pages) -->
+              <path d="M28 8 C28 8 14 6 6 10 L6 48 C14 44 28 46 28 46" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 8 C28 8 42 6 50 10 L50 48 C42 44 28 46 28 46" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+              <!-- Spine = vertical of + -->
+              <line x1="28" y1="6" x2="28" y2="48" stroke="#eab308" stroke-width="3" stroke-linecap="round"/>
+              <!-- Pencil = horizontal of + -->
+              <line x1="10" y1="27" x2="46" y2="27" stroke="#eab308" stroke-width="3" stroke-linecap="round"/>
+              <!-- Pencil tip -->
+              <polygon points="46,27 50,25 50,29" fill="#eab308"/>
+              <!-- Page lines -->
+              <line x1="12" y1="18" x2="24" y2="18" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="12" y1="22" x2="22" y2="22" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="32" y1="18" x2="44" y2="18" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="32" y1="22" x2="42" y2="22" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="12" y1="34" x2="24" y2="34" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="32" y1="34" x2="44" y2="34" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="12" y1="38" x2="20" y2="38" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="32" y1="38" x2="40" y2="38" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            </svg>
+            <div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 40px; font-weight: 900; color: white; letter-spacing: -1px; line-height: 1; text-align: left;">MathPlus</div>
+              <div style="width: 36px; height: 2.5px; background: #eab308; border-radius: 2px; margin-top: 6px;"></div>
+              <div style="font-family: 'Heebo', sans-serif; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 1px; margin-top: 5px; text-align: right;" dir="rtl">שיעורים פרטיים וליווי במתמטיקה</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; justify-content: center;">
+        <span style="font-size: 12px; color: #888;">Standalone icon:</span>
+        <div style="background: #0f766e; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;">
+          <svg width="26" height="26" viewBox="0 0 56 56">
+            <path d="M28 8 C28 8 14 6 6 10 L6 48 C14 44 28 46 28 46" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2.5"/>
+            <path d="M28 8 C28 8 42 6 50 10 L50 48 C42 44 28 46 28 46" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2.5"/>
+            <line x1="28" y1="6" x2="28" y2="48" stroke="#eab308" stroke-width="4" stroke-linecap="round"/>
+            <line x1="10" y1="27" x2="46" y2="27" stroke="#eab308" stroke-width="4" stroke-linecap="round"/>
+            <polygon points="46,27 51,24.5 51,29.5" fill="#eab308"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4: Sigma morphing into + -->
+  <div class="option" data-choice="sigma-morph" onclick="toggleSelect(this)">
+    <div class="letter">4</div>
+    <div class="content">
+      <h3>The Sigma→Plus</h3>
+      <p>The Greek Σ (summation — pure math) morphs into a + on the right side. One symbol flowing into another. Says: "math expertise that adds up."</p>
+      <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <div style="background: #0f766e; border-radius: 20px; padding: 44px 56px; display: inline-block; text-align: center;">
+          <div style="display: inline-flex; align-items: center; gap: 16px;">
+            <svg width="60" height="52" viewBox="0 0 60 52">
+              <!-- Sigma shape flowing into + -->
+              <path d="M4 6 L24 6 L14 26 L24 46 L4 46" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Connecting flow line -->
+              <path d="M24 26 C30 26 34 26 38 26" fill="none" stroke="rgba(234,179,8,0.4)" stroke-width="2" stroke-dasharray="3 3"/>
+              <!-- + symbol -->
+              <line x1="46" y1="12" x2="46" y2="40" stroke="#eab308" stroke-width="4" stroke-linecap="round"/>
+              <line x1="34" y1="26" x2="58" y2="26" stroke="#eab308" stroke-width="4" stroke-linecap="round"/>
+              <!-- Glow on + -->
+              <circle cx="46" cy="26" r="10" fill="#eab308" opacity="0.08"/>
+            </svg>
+            <div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 40px; font-weight: 900; color: white; letter-spacing: -1px; line-height: 1; text-align: left;">MathPlus</div>
+              <div style="width: 36px; height: 2.5px; background: #eab308; border-radius: 2px; margin-top: 6px;"></div>
+              <div style="font-family: 'Heebo', sans-serif; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 1px; margin-top: 5px; text-align: right;" dir="rtl">שיעורים פרטיים וליווי במתמטיקה</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; justify-content: center;">
+        <span style="font-size: 12px; color: #888;">Standalone icon:</span>
+        <div style="background: #0f766e; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;">
+          <svg width="28" height="24" viewBox="0 0 60 52">
+            <path d="M4 6 L24 6 L14 26 L24 46 L4 46" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="46" y1="12" x2="46" y2="40" stroke="#eab308" stroke-width="5" stroke-linecap="round"/>
+            <line x1="34" y1="26" x2="58" y2="26" stroke="#eab308" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5: Human figure + growth arrow -->
+  <div class="option" data-choice="person-rise" onclick="toggleSelect(this)">
+    <div class="letter">5</div>
+    <div class="content">
+      <h3>The Rise</h3>
+      <p>A simple human figure with arms raised in victory — the body forms the vertical of the +, the arms the horizontal. An upward arrow rises from the head. Personal success, not just math.</p>
+      <div style="display: flex; justify-content: center; margin: 20px 0;">
+        <div style="background: #0f766e; border-radius: 20px; padding: 44px 56px; display: inline-block; text-align: center;">
+          <div style="display: inline-flex; align-items: center; gap: 16px;">
+            <svg width="50" height="58" viewBox="0 0 50 58">
+              <!-- Head -->
+              <circle cx="25" cy="10" r="7" fill="none" stroke="#eab308" stroke-width="2.5"/>
+              <!-- Body (vertical of +) -->
+              <line x1="25" y1="17" x2="25" y2="42" stroke="#eab308" stroke-width="3" stroke-linecap="round"/>
+              <!-- Arms raised (horizontal of +) -->
+              <path d="M8 22 Q12 28 25 30 Q38 28 42 22" fill="none" stroke="#eab308" stroke-width="3" stroke-linecap="round"/>
+              <!-- Legs -->
+              <line x1="25" y1="42" x2="16" y2="54" stroke="#eab308" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="25" y1="42" x2="34" y2="54" stroke="#eab308" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Rising arrow from head -->
+              <line x1="25" y1="3" x2="25" y2="-4" stroke="#eab308" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+              <polygon points="25,-6 22,-1 28,-1" fill="#eab308" opacity="0.6"/>
+              <!-- Sparkle dots -->
+              <circle cx="8" cy="18" r="1.5" fill="#eab308" opacity="0.4"/>
+              <circle cx="42" cy="18" r="1.5" fill="#eab308" opacity="0.4"/>
+              <circle cx="25" cy="-8" r="1.5" fill="#eab308" opacity="0.3"/>
+            </svg>
+            <div>
+              <div style="font-family: 'Rubik', sans-serif; font-size: 40px; font-weight: 900; color: white; letter-spacing: -1px; line-height: 1; text-align: left;">MathPlus</div>
+              <div style="width: 36px; height: 2.5px; background: #eab308; border-radius: 2px; margin-top: 6px;"></div>
+              <div style="font-family: 'Heebo', sans-serif; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 1px; margin-top: 5px; text-align: right;" dir="rtl">שיעורים פרטיים וליווי במתמטיקה</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; justify-content: center;">
+        <span style="font-size: 12px; color: #888;">Standalone icon:</span>
+        <div style="background: #0f766e; border-radius: 8px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;">
+          <svg width="22" height="28" viewBox="0 0 50 58">
+            <circle cx="25" cy="10" r="7" fill="none" stroke="#eab308" stroke-width="3"/>
+            <line x1="25" y1="17" x2="25" y2="42" stroke="#eab308" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M8 22 Q12 28 25 30 Q38 28 42 22" fill="none" stroke="#eab308" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="25" y1="42" x2="16" y2="54" stroke="#eab308" stroke-width="3" stroke-linecap="round"/>
+            <line x1="25" y1="42" x2="34" y2="54" stroke="#eab308" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top: 24px;">Each icon tells a story and works as a standalone mark. Click what resonates — or tell me what direction to push further.</p>

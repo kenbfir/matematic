@@ -37,68 +37,15 @@ const DATES = [
 ]
 const BATTERY = [87, 62, 94, 78, 53, 71, 91, 45]
 
-// 8 distinct person silhouettes — index matches testimonial slot
-// Applied with blur to simulate a photo blurred for privacy
-const SILHOUETTES = [
-  // 0: Long straight dark hair, female
-  <svg key="0" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <rect width="36" height="36" fill="#c8a888"/>
-    <rect x="9" y="2" width="18" height="26" rx="9" fill="#1e0e06"/>
-    <ellipse cx="18" cy="13" rx="7" ry="8" fill="#f0c090"/>
-    <ellipse cx="18" cy="42" rx="16" ry="12" fill="#6b4498"/>
-  </svg>,
-  // 1: Short bob, older female (parent), grey-brown hair
-  <svg key="1" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <rect width="36" height="36" fill="#a8b8c8"/>
-    <ellipse cx="18" cy="10" rx="9" ry="9" fill="#7a6858"/>
-    <ellipse cx="18" cy="14" rx="6.5" ry="7" fill="#e8b088"/>
-    <ellipse cx="18" cy="42" rx="16" ry="12" fill="#2e6898"/>
-  </svg>,
-  // 2: Short hair male, dark stubble
-  <svg key="2" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <rect width="36" height="36" fill="#a8c0a0"/>
-    <rect x="10" y="2" width="16" height="9" rx="8" fill="#1a1008"/>
-    <rect x="11" y="8" width="14" height="16" rx="5" fill="#d89860"/>
-    <rect x="12" y="21" width="12" height="3" rx="1.5" fill="#b07840" opacity="0.6"/>
-    <ellipse cx="18" cy="42" rx="16" ry="12" fill="#1e5830"/>
-  </svg>,
-  // 3: Long curly auburn hair, female
-  <svg key="3" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <rect width="36" height="36" fill="#d0b8c8"/>
-    <ellipse cx="18" cy="14" rx="13" ry="13" fill="#7a2808"/>
-    <ellipse cx="18" cy="13" rx="7" ry="8" fill="#f5c898"/>
-    <ellipse cx="18" cy="42" rx="16" ry="12" fill="#a83860"/>
-  </svg>,
-  // 4: Buzzcut male
-  <svg key="4" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <rect width="36" height="36" fill="#c8b898"/>
-    <ellipse cx="18" cy="11" rx="9" ry="9" fill="#100808"/>
-    <ellipse cx="18" cy="15" rx="8" ry="8.5" fill="#d08050"/>
-    <ellipse cx="18" cy="42" rx="16" ry="12" fill="#1a3868"/>
-  </svg>,
-  // 5: Hijab, navy blue
-  <svg key="5" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <rect width="36" height="36" fill="#98b8b0"/>
-    <ellipse cx="18" cy="16" rx="14" ry="18" fill="#183060"/>
-    <ellipse cx="18" cy="12" rx="7" ry="7.5" fill="#f0c090"/>
-    <ellipse cx="18" cy="42" rx="18" ry="12" fill="#183060"/>
-  </svg>,
-  // 6: Ponytail female, dark brown hair
-  <svg key="6" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <rect width="36" height="36" fill="#b8d0b8"/>
-    <ellipse cx="18" cy="10" rx="9" ry="8" fill="#3a1e08"/>
-    <rect x="26" y="0" width="5" height="14" rx="2.5" fill="#3a1e08"/>
-    <ellipse cx="18" cy="13" rx="6.5" ry="7.5" fill="#f0c890"/>
-    <ellipse cx="18" cy="42" rx="16" ry="12" fill="#28784a"/>
-  </svg>,
-  // 7: Older male, grey receding hairline
-  <svg key="7" width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <rect width="36" height="36" fill="#b0b8c8"/>
-    <rect x="6" y="4" width="7" height="8" rx="3.5" fill="#888890"/>
-    <rect x="23" y="4" width="7" height="8" rx="3.5" fill="#888890"/>
-    <ellipse cx="18" cy="15" rx="8.5" ry="9" fill="#c87850"/>
-    <ellipse cx="18" cy="42" rx="16" ry="12" fill="#304860"/>
-  </svg>,
+const AVATAR_PHOTOS = [
+  '/images/avatars/person-0.jpg',
+  '/images/avatars/person-1.jpg',
+  '/images/avatars/person-2.jpg',
+  '/images/avatars/person-3.jpg',
+  '/images/avatars/person-4.jpg',
+  '/images/avatars/person-5.jpg',
+  '/images/avatars/person-6.jpg',
+  '/images/avatars/person-7.jpg',
 ]
 
 function WhatsAppScreenshot({
@@ -145,9 +92,16 @@ function WhatsAppScreenshot({
           </svg>
           <div
             className="w-9 h-9 rounded-full overflow-hidden shrink-0"
-            style={{ filter: 'blur(3px) brightness(0.88)' }}
+            style={{ filter: 'blur(22px) brightness(0.9) saturate(1.2)', transform: 'scale(1.4)' }}
           >
-            {SILHOUETTES[index % SILHOUETTES.length]}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={AVATAR_PHOTOS[index % AVATAR_PHOTOS.length]}
+              alt=""
+              width={36}
+              height={36}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-white font-medium text-[15px] truncate">{testimonial.name}</div>

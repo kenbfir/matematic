@@ -9,22 +9,18 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#1e3a5f',
-          light: '#2a4f7f',
-          dark: '#152a45',
+          DEFAULT: '#0f766e',   // teal
+          light: '#14b8a6',     // teal-400
+          dark: '#0d5e57',      // teal-800
         },
         accent: {
-          DEFAULT: '#22c55e',
-          light: '#4ade80',
-          dark: '#16a34a',
-        },
-        orange: {
-          DEFAULT: '#f59e0b',
-          light: '#fbbf24',
+          DEFAULT: '#eab308',   // gold
+          light: '#fde047',     // gold-300
+          dark: '#ca8a04',      // gold-600
         },
         background: {
           DEFAULT: '#ffffff',
-          secondary: '#f8fafc',
+          secondary: '#f0fdfa', // teal-50
         },
         text: {
           DEFAULT: '#1e293b',
