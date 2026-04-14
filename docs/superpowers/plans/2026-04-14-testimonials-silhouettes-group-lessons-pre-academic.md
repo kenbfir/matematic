@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Fix 4 bugs, rewrite 10 testimonials with blurred silhouette avatars, add group lessons across all programs, create `/pre-academic` landing page.
+**Goal:** Fix 4 bugs, rewrite 10 testimonials with blurred silhouette avatars, add group lessons across all programs, create `/pre-academic` landing page, level dropdown only on bagrut page.
 
-**Architecture:** All content changes go through `lib/constants.ts`. Silhouettes are inline SVG arrays in `Testimonials.tsx`. New landing page reuses existing `Landing*` components.
+**Architecture:** All content changes go through `lib/constants.ts`. Silhouettes are inline SVG arrays in `Testimonials.tsx`. New landing page reuses existing `Landing*` components. `LandingContact` gets a `levelOptions` prop — when provided shows dropdown, when absent submits `defaultLevel` silently.
 
 **Tech Stack:** Next.js 14 App Router, TypeScript, Tailwind CSS, Framer Motion, Lucide React.
 
@@ -18,6 +18,10 @@
 - `components/ContactForm.tsx` — restore `cta-glow` on submit button
 - `lib/constants.ts` — new TESTIMONIALS, updated PROGRAMS bullets, new FAQ entry, updated LEVEL_OPTIONS
 - `components/Testimonials.tsx` — replace generic avatar with 8 blurred silhouette SVGs
+- `components/LandingContact.tsx` — add `levelOptions` prop; hide dropdown when absent, submit `defaultLevel` silently
+- `app/bagrut/page.tsx` — pass `levelOptions` (3/4/5 units only) + rewrite local testimonials
+- `app/middle-school/page.tsx` — remove level dropdown (no `levelOptions`) + rewrite local testimonials
+- `app/academic/page.tsx` — remove level dropdown (no `levelOptions`) + rewrite local testimonials
 
 **Create:**
 - `app/pre-academic/page.tsx` — new landing page
@@ -540,7 +544,143 @@ git commit -m "feat: add /pre-academic landing page for academic prep service"
 
 ---
 
-## Task 5: Commit all uncommitted rebrand changes
+## Task 5: LandingContact level dropdown — bagrut only
+
+**Files:**
+- Modify: `components/LandingContact.tsx`
+- Modify: `app/bagrut/page.tsx`
+- Modify: `app/middle-school/page.tsx`
+- Modify: `app/academic/page.tsx`
+
+- [ ] **Step 1: Add `levelOptions` prop to LandingContact**
+
+Open `components/LandingContact.tsx`. Make the following changes:
+
+1. Update the `FormData` interface — `level` is always a string (no change needed).
+2. Add `levelOptions` to the props interface and the destructure:
+
+```tsx
+// Change the props interface from:
+export default function LandingContact({
+  defaultLevel,
+  headline = 'השאירו פרטים ונחזור אליכם תוך שעות',
+}: {
+  defaultLevel?: string
+  headline?: string
+})
+
+// To:
+export default function LandingContact({
+  defaultLevel,
+  headline = 'השאירו פרטים ונחזור אליכם תוך שעות',
+  levelOptions,
+}: {
+  defaultLevel?: string
+  headline?: string
+  levelOptions?: { value: string; label: string }[]
+})
+```
+
+3. Replace the level `<div>` block inside the form (currently lines 120-131) with conditional rendering:
+
+```tsx
+{levelOptions ? (
+  <div>
+    <label htmlFor="level" className="block text-sm font-medium text-text mb-1">רמת לימוד</label>
+    <select
+      id="level"
+      {...register('level')}
+      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors bg-white"
+    >
+      {levelOptions.map((opt) => (
+        <option key={opt.value} value={opt.value}>{opt.label}</option>
+      ))}
+    </select>
+  </div>
+) : (
+  <input type="hidden" {...register('level')} value={defaultLevel || ''} />
+)}
+```
+
+Also remove the `import { LEVEL_OPTIONS, WHATSAPP_URL } from '@/lib/constants'` reference to `LEVEL_OPTIONS` — change it to just:
+```tsx
+import { WHATSAPP_URL } from '@/lib/constants'
+```
+
+- [ ] **Step 2: Update bagrut page — pass levelOptions**
+
+Open `app/bagrut/page.tsx`. Find the `<LandingContact>` call and add `levelOptions`:
+
+```tsx
+<LandingContact
+  defaultLevel="bagrut-5"
+  levelOptions={[
+    { value: 'bagrut-3', label: 'בגרות 3 יחידות' },
+    { value: 'bagrut-4', label: 'בגרות 4 יחידות' },
+    { value: 'bagrut-5', label: 'בגרות 5 יחידות' },
+  ]}
+  headline="השאירו פרטים — נבנה תוכנית הכנה לבגרות"
+/>
+```
+
+Also rewrite the local `TESTIMONIALS` const (lines 37-42) with natural language versions:
+
+```tsx
+const TESTIMONIALS = [
+  { quote: 'עליתי מ-62 ל-89 בבגרות. בן לא ויתר עליי גם כשאני כבר הייתי בטוח שנגמר לי. תודה על הכל.', name: 'יעל כ.', detail: 'בגרות 4 יחידות', improvement: 'מ-62 ל-89' },
+  { quote: 'נכנסתי לבחינת הבגרות 5 יחידות בביטחון. ציון 94. בן הכין אותי לכל תרחיש אפשרי בבחינה.', name: 'נועה ש.', detail: 'בגרות 5 יחידות', improvement: 'ציון 94' },
+  { quote: 'התחלתי את השנה עם 54 וסיימתי עם 85. פתאום הכל נפל למקום — הסבר אחד שלו שינה לי הכל.', name: 'תומר א.', detail: 'בגרות 3 יחידות', improvement: 'מ-54 ל-85' },
+  { quote: 'הבת שלי הייתה בלחץ אדיר לפני הבגרות. בן הצליח להרגיע אותה ולסדר לה את הראש. קיבלה 88.', name: 'רונית מ.', detail: 'אמא של תלמידת בגרות 4 יח׳', improvement: 'ציון 88' },
+]
+```
+
+- [ ] **Step 3: Rewrite middle-school page testimonials**
+
+Open `app/middle-school/page.tsx`. Replace the local `TESTIMONIALS` const with:
+
+```tsx
+const TESTIMONIALS = [
+  { quote: 'הבן שלי פשוט שינה יחס למתמטיקה. לא האמנתי שזה אפשרי. עכשיו הוא מבקש לעשות תרגילים.', name: 'מיכל ר.', detail: 'אמא של תלמיד כיתה ח׳', improvement: 'שינוי גישה מוחלט' },
+  { quote: 'עלה מ-58 ל-82 תוך סמסטר. בן לא ויתר עליו — עבד על כל פרצה עד שנסגרה.', name: 'איתי ג.', detail: 'תלמיד כיתה ט׳', improvement: 'מ-58 ל-82' },
+  { quote: 'הבת שלי עברה מ-65 ל-90 בגיאומטריה. בן עבד איתה על ביטחון — וזה עשה את כל ההבדל.', name: 'דנה ש.', detail: 'אמא של תלמידה כיתה ז׳', improvement: 'מ-65 ל-90' },
+  { quote: 'חשבתי שאני לא מתאים למתמטיקה. בן שינה לי את הגישה. עכשיו אני הולך על 5 יחידות.', name: 'עידו ק.', detail: 'תלמיד כיתה ט׳', improvement: 'הולך על 5 יח׳' },
+]
+```
+
+The `<LandingContact defaultLevel="middle-school" ...>` call needs no `levelOptions` — dropdown will be hidden automatically.
+
+- [ ] **Step 4: Rewrite academic page testimonials**
+
+Open `app/academic/page.tsx`. Replace the local `TESTIMONIALS` const (lines 37-41) with:
+
+```tsx
+const TESTIMONIALS = [
+  { quote: 'עברתי אינפי 1 עם 91. הסביר לי כל שאלה עד שהבנתי — לא קידם הלאה לפני שהיה לי ברור.', name: 'אורי ד.', detail: 'סטודנט למדעי המחשב', improvement: 'ציון 91 באינפי' },
+  { quote: 'הצלת לי את הסמסטר בלינארית. ממש לא ציפיתי לעבור, ועברתי עם 85.', name: 'שירה ל.', detail: 'סטודנטית להנדסת תעשייה', improvement: 'ציון 85 בלינארית' },
+  { quote: 'נכשלתי באינפי 2 במועד א׳. בן עשה סדר בחומר ועברתי עם 78 במועד ב׳. לא ציפיתי לזה.', name: 'דניאל ר.', detail: 'סטודנט לכלכלה', improvement: 'מנכשל ל-78' },
+  { quote: 'הסביר לי הסתברות עם דוגמאות מהחיים ופתאום הכל נהיה הגיוני. קיבלתי 88 בבחינה.', name: 'מאיה כ.', detail: 'סטודנטית לפסיכולוגיה', improvement: 'ציון 88' },
+]
+```
+
+The `<LandingContact defaultLevel="academic" ...>` call needs no `levelOptions`.
+
+- [ ] **Step 5: Verify lint passes**
+
+```bash
+npm run lint
+```
+Expected: no errors.
+
+- [ ] **Step 6: Commit**
+
+```bash
+git add components/LandingContact.tsx app/bagrut/page.tsx app/middle-school/page.tsx app/academic/page.tsx
+git commit -m "feat: level dropdown only on bagrut page, rewrite landing page testimonials"
+```
+
+---
+
+## Task 6: Commit all uncommitted rebrand changes
 
 The repo has a large set of uncommitted changes from the rebrand (LevelUp → Math+, color system, testimonials, header). These were reviewed in pre-launch review and are ready to stage.
 
@@ -576,3 +716,7 @@ git commit -m "feat: rebrand to Math+, teal/gold color system, updated copy and 
 - [x] Uncommitted rebrand changes committed in Task 5
 - [x] All imports in pre-academic page match existing component names
 - [x] `defaultLevel="pre-academic"` matches existing LEVEL_OPTIONS value
+- [x] `LandingContact` levelOptions prop — dropdown shown only when prop provided
+- [x] Bagrut page passes levelOptions with 3/4/5 units only
+- [x] Middle-school, academic, pre-academic pass no levelOptions → level submitted silently
+- [x] Landing page testimonials rewritten in all 3 existing pages
