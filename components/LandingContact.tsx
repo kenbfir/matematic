@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { Send, CheckCircle, Shield, Clock, MessageCircle, ArrowLeft } from 'lucide-react'
-import { LEVEL_OPTIONS, WHATSAPP_URL } from '@/lib/constants'
+import { WHATSAPP_URL } from '@/lib/constants'
 
 interface FormData {
   name: string
@@ -15,9 +15,11 @@ interface FormData {
 export default function LandingContact({
   defaultLevel,
   headline = 'השאירו פרטים ונחזור אליכם תוך שעות',
+  levelOptions,
 }: {
   defaultLevel?: string
   headline?: string
+  levelOptions?: { value: string; label: string }[]
 }) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -117,18 +119,22 @@ export default function LandingContact({
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>}
               </div>
 
-              <div>
-                <label htmlFor="level" className="block text-sm font-medium text-text mb-1">רמת לימוד</label>
-                <select
-                  id="level"
-                  {...register('level')}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors bg-white"
-                >
-                  {LEVEL_OPTIONS.map((opt) => (
-                    <option key={opt.value} value={opt.value}>{opt.label}</option>
-                  ))}
-                </select>
-              </div>
+              {levelOptions ? (
+                <div>
+                  <label htmlFor="level" className="block text-sm font-medium text-text mb-1">רמת לימוד</label>
+                  <select
+                    id="level"
+                    {...register('level')}
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors bg-white"
+                  >
+                    {levelOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
+                  </select>
+                </div>
+              ) : (
+                <input type="hidden" {...register('level')} value={defaultLevel || ''} />
+              )}
 
               <button
                 type="submit"

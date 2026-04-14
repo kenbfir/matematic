@@ -35,10 +35,10 @@ const BENEFITS = [
 ]
 
 const TESTIMONIALS = [
-  { quote: 'בן תודה רבה על הכל!! עליתי מ-62 ל-89 בבגרות, בלעדיך לא הייתי מצליחה. סוף סוף הבנתי את החומר 🙏', name: 'יעל כ.', detail: 'בגרות 4 יחידות', improvement: 'מ-62 ל-89' },
-  { quote: 'בן אני חייבת להגיד לך תודה!! קיבלתי 94 בבגרות 5 יחידות. נכנסתי לבחינה בביטחון מלא, הכל בזכותך ❤️', name: 'נועה ש.', detail: 'בגרות 5 יחידות', improvement: 'ציון 94' },
-  { quote: 'בן תודה אחי!! התחלתי את השנה עם 54 ועכשיו סיימתי עם 85. בלי השיעורים איתך לא הייתי מגיע לשם 🙏', name: 'תומר א.', detail: 'בגרות 3 יחידות', improvement: 'מ-54 ל-85' },
-  { quote: 'בן תודה רבה על הסבלנות עם הבת שלי! היא הייתה בלחץ רציני והצלחת להרגיע אותה. קיבלה 88 בבגרות!!', name: 'רונית מ.', detail: 'אמא של תלמידת בגרות 4 יח׳', improvement: 'ציון 88' },
+  { quote: 'עליתי מ-62 ל-89 בבגרות. בן לא ויתר עליי גם כשאני כבר הייתי בטוח שנגמר לי. תודה על הכל.', name: 'יעל כ.', detail: 'בגרות 4 יחידות', improvement: 'מ-62 ל-89' },
+  { quote: 'נכנסתי לבחינת הבגרות 5 יחידות בביטחון. ציון 94. בן הכין אותי לכל תרחיש אפשרי בבחינה.', name: 'נועה ש.', detail: 'בגרות 5 יחידות', improvement: 'ציון 94' },
+  { quote: 'התחלתי את השנה עם 54 וסיימתי עם 85. פתאום הכל נפל למקום — הסבר אחד שלו שינה לי הכל.', name: 'תומר א.', detail: 'בגרות 3 יחידות', improvement: 'מ-54 ל-85' },
+  { quote: 'הבת שלי הייתה בלחץ אדיר לפני הבגרות. בן הצליח להרגיע אותה ולסדר לה את הראש. קיבלה 88.', name: 'רונית מ.', detail: 'אמא של תלמידת בגרות 4 יח׳', improvement: 'ציון 88' },
 ]
 
 const FAQ = [
@@ -66,7 +66,15 @@ export default function BagrutPage() {
       <LandingTestimonials testimonials={TESTIMONIALS} />
       <TrialCTABlock headline="מוכן לשפר את ציון הבגרות? שיעור ניסיון ב-₪99" />
       <LandingFAQ items={FAQ} />
-      <LandingContact defaultLevel="bagrut-5" headline="השאירו פרטים — נבנה תוכנית הכנה לבגרות" />
+      <LandingContact
+        defaultLevel="bagrut-5"
+        levelOptions={[
+          { value: 'bagrut-3', label: 'בגרות 3 יחידות' },
+          { value: 'bagrut-4', label: 'בגרות 4 יחידות' },
+          { value: 'bagrut-5', label: 'בגרות 5 יחידות' },
+        ]}
+        headline="השאירו פרטים — נבנה תוכנית הכנה לבגרות"
+      />
       <WhatsAppButton />
       <StickyMobileCTA />
     </>
