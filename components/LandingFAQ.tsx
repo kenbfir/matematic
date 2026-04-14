@@ -35,6 +35,7 @@ export default function LandingFAQ({ items }: { items: FAQItem[] }) {
               transition={{ delay: i * 0.06 }}
             >
               <button
+                aria-expanded={open === i}
                 className="w-full flex items-center justify-between px-6 py-4 text-right font-bold text-primary hover:bg-gray-50 transition-colors"
                 onClick={() => setOpen(open === i ? null : i)}
               >
