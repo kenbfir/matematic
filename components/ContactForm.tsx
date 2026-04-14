@@ -3,13 +3,12 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
-import { Send, Phone, MessageCircle, CheckCircle, Shield, Clock, Star } from 'lucide-react'
+import { Send, Phone, MessageCircle, CheckCircle, Shield, Clock, Star, ArrowLeft } from 'lucide-react'
 import { LEVEL_OPTIONS, WHATSAPP_URL, PHONE_NUMBER } from '@/lib/constants'
 
 interface FormData {
   name: string
   phone: string
-  email: string
   level: string
   message: string
 }
@@ -85,10 +84,20 @@ export default function ContactForm() {
               >
                 <CheckCircle className="w-16 h-16 text-accent mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-primary mb-2">הטופס נשלח בהצלחה!</h3>
-                <p className="text-text-light">נחזור אליך בהקדם. תודה!</p>
+                <p className="text-text-light mb-6">נחזור אליך בהקדם. בינתיים, אפשר גם לשלוח הודעה ישירה:</p>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  המשיכו בוואטסאפ
+                  <ArrowLeft className="w-4 h-4" />
+                </a>
                 <button
                   onClick={() => setIsSubmitted(false)}
-                  className="mt-4 text-accent hover:underline font-medium"
+                  className="mt-4 block mx-auto text-text-lighter hover:text-text text-sm"
                 >
                   שליחת טופס נוסף
                 </button>
@@ -136,28 +145,6 @@ export default function ContactForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-text mb-1">
-                      אימייל
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      dir="ltr"
-                      {...register('email', {
-                        pattern: {
-                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                          message: 'כתובת אימייל לא תקינה',
-                        },
-                      })}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors text-left"
-                      placeholder="email@example.com"
-                    />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-                    )}
-                  </div>
-
-                  <div>
                     <label htmlFor="level" className="block text-sm font-medium text-text mb-1">
                       רמת לימוד
                     </label>
@@ -190,7 +177,7 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="cta-glow w-full bg-accent hover:bg-accent-dark text-white py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100 flex items-center justify-center gap-2"
+                    className="cta-glow w-full bg-accent hover:bg-accent-dark text-gray-900 py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100 flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       'שולח...'
