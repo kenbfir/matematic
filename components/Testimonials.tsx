@@ -51,9 +51,11 @@ const AVATAR_PHOTOS = [
 function WhatsAppScreenshot({
   testimonial,
   index,
+  compact = false,
 }: {
   testimonial: (typeof TESTIMONIALS)[number]
   index: number
+  compact?: boolean
 }) {
   const times = TIMES[index % TIMES.length]
   const replyText = REPLY_TEXTS[index % REPLY_TEXTS.length]
@@ -61,7 +63,7 @@ function WhatsAppScreenshot({
   const batteryPercent = BATTERY[index % BATTERY.length]
 
   return (
-    <div className="w-full max-w-[360px] mx-auto select-none pointer-events-none">
+    <div className={`w-full ${compact ? 'max-w-full' : 'max-w-[360px]'} mx-auto select-none pointer-events-none`}>
       {/* Phone frame - looks like a screenshot image */}
       <div className="rounded-[24px] overflow-hidden shadow-2xl border border-gray-200 bg-white">
         {/* Status bar */}
@@ -121,7 +123,7 @@ function WhatsAppScreenshot({
 
         {/* Chat area with real WhatsApp wallpaper */}
         <div
-          className="px-3 py-4 min-h-[220px] flex flex-col justify-end"
+          className={`px-3 py-4 flex flex-col justify-end ${compact ? 'min-h-[180px]' : 'min-h-[220px]'}`}
           style={{
             backgroundImage: 'url("/images/whatsapp-bg.jpg")',
             backgroundSize: '320px auto',
@@ -204,32 +206,35 @@ function WhatsAppScreenshot({
   )
 }
 
+const PAGES = 4 // 12 testimonials / 3 per page
+
 export default function Testimonials() {
-  const [current, setCurrent] = useState(0)
+  const [page, setPage] = useState(0)
   const [direction, setDirection] = useState(0)
   const touchStart = useRef<number | null>(null)
-  const total = TESTIMONIALS.length
 
   const goTo = useCallback((idx: number, dir: number) => {
     setDirection(dir)
-    setCurrent(((idx % total) + total) % total)
-  }, [total])
+    setPage(((idx % PAGES) + PAGES) % PAGES)
+  }, [])
 
-  const prev = useCallback(() => goTo(current - 1, -1), [current, goTo])
-  const next = useCallback(() => goTo(current + 1, 1), [current, goTo])
+  const prev = useCallback(() => goTo(page - 1, -1), [page, goTo])
+  const next = useCallback(() => goTo(page + 1, 1), [page, goTo])
 
   useEffect(() => {
     const timer = setInterval(() => {
-      goTo(current + 1, 1)
+      goTo(page + 1, 1)
     }, 6000)
     return () => clearInterval(timer)
-  }, [current, goTo])
+  }, [page, goTo])
 
   const variants = {
     enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
     center: { x: 0, opacity: 1 },
     exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
   }
+
+  const pageStart = page * 3
 
   return (
     <section id="testimonials" className="section-padding">
@@ -248,24 +253,25 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Carousel */}
-        <div className="relative max-w-[400px] mx-auto">
+        <div className="relative">
+          {/* Nav arrows */}
           <button
             onClick={prev}
-            className="absolute top-1/2 -translate-y-1/2 -right-14 md:-right-16 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors border border-gray-200"
+            className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors border border-gray-200"
             aria-label="הקודם"
           >
             <ChevronRight className="w-5 h-5 text-primary" />
           </button>
           <button
             onClick={next}
-            className="absolute top-1/2 -translate-y-1/2 -left-14 md:-left-16 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors border border-gray-200"
+            className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-12 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors border border-gray-200"
             aria-label="הבא"
           >
             <ChevronLeft className="w-5 h-5 text-primary" />
           </button>
 
           <div
-            className="overflow-hidden"
+            className="overflow-hidden px-6 md:px-0"
             onTouchStart={(e) => { touchStart.current = e.touches[0].clientX }}
             onTouchEnd={(e) => {
               if (touchStart.current === null) return
@@ -279,7 +285,7 @@ export default function Testimonials() {
           >
             <AnimatePresence custom={direction} mode="wait">
               <motion.div
-                key={current}
+                key={page}
                 custom={direction}
                 variants={variants}
                 initial="enter"
@@ -287,25 +293,41 @@ export default function Testimonials() {
                 exit="exit"
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               >
-                <WhatsAppScreenshot
-                  testimonial={TESTIMONIALS[current]}
-                  index={current}
-                />
+                {/* Desktop: 3 cards side by side */}
+                <div className="hidden md:grid grid-cols-3 gap-6">
+                  {[0, 1, 2].map((offset) => (
+                    <WhatsAppScreenshot
+                      key={pageStart + offset}
+                      testimonial={TESTIMONIALS[pageStart + offset]}
+                      index={pageStart + offset}
+                      compact
+                    />
+                  ))}
+                </div>
+
+                {/* Mobile: single card */}
+                <div className="block md:hidden max-w-[360px] mx-auto">
+                  <WhatsAppScreenshot
+                    testimonial={TESTIMONIALS[pageStart]}
+                    index={pageStart}
+                  />
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
+          {/* Page dots */}
           <div className="flex items-center justify-center gap-2 mt-6">
-            {TESTIMONIALS.map((_, i) => (
+            {Array.from({ length: PAGES }).map((_, i) => (
               <button
                 key={i}
-                onClick={() => goTo(i, i > current ? 1 : -1)}
+                onClick={() => goTo(i, i > page ? 1 : -1)}
                 className={`rounded-full transition-all duration-300 ${
-                  i === current
+                  i === page
                     ? 'w-6 h-2.5 bg-accent'
                     : 'w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400'
                 }`}
-                aria-label={`המלצה ${i + 1}`}
+                aria-label={`עמוד ${i + 1}`}
               />
             ))}
           </div>
