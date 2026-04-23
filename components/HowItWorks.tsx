@@ -47,19 +47,15 @@ export default function HowItWorks() {
             return (
               <motion.div
                 key={step.number}
-                className="text-center relative group"
+                className="text-center relative"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                <motion.div
-                  className={`w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border-4 border-accent/20 relative z-10 group-hover:border-accent/40 transition-colors`}
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border-4 border-accent/20 relative z-10">
                   <Icon className="w-8 h-8 text-accent" />
-                </motion.div>
+                </div>
 
                 {/* Step number */}
                 <motion.div
