@@ -89,7 +89,7 @@ export default function ContactForm() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold transition-colors"
                 >
                   <MessageCircle className="w-5 h-5" />
                   המשיכו בוואטסאפ
@@ -177,7 +177,7 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="cta-glow w-full bg-accent hover:bg-accent-dark text-gray-900 py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100 flex items-center justify-center gap-2"
+                    className="cta-glow w-full bg-accent hover:bg-accent-dark text-gray-900 py-4 rounded-xl font-bold text-lg transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       'שולח...'

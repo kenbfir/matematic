@@ -57,7 +57,7 @@ export default function CtaBanner() {
 
           <a
             href="#contact"
-            className="cta-glow inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-10 py-4 rounded-xl text-lg font-bold transition-all hover:scale-105"
+            className="cta-glow inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-10 py-4 rounded-xl text-lg font-bold transition-colors"
           >
             בואו נתחיל
             <ArrowLeft className="w-5 h-5" />

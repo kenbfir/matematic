@@ -139,7 +139,7 @@ export default function LandingContact({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-accent hover:bg-accent-dark text-gray-900 py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] disabled:opacity-50 flex items-center justify-center gap-2"
+                className="w-full bg-accent hover:bg-accent-dark text-gray-900 py-4 rounded-xl font-bold text-lg transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? 'שולח...' : (
                   <><Send className="w-5 h-5" />שליחה - שיעור ניסיון ב-₪99</>
@@ -176,7 +176,7 @@ export default function LandingContact({
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold text-lg transition-all hover:scale-[1.02]"
+            className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold text-lg transition-colors"
           >
             <MessageCircle className="w-5 h-5" />
             שלחו הודעה בוואטסאפ - מענה מיידי

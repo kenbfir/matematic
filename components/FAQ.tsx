@@ -93,7 +93,7 @@ export default function FAQ() {
           <p className="text-text-light mb-4">יש עוד שאלות? נשמח לענות</p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-medium transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-medium transition-colors"
           >
             דברו איתנו
             <ArrowLeft className="w-4 h-4" />
