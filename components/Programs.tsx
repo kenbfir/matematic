@@ -58,28 +58,24 @@ export default function Programs() {
             return (
               <motion.div
                 key={program.title}
-                className={`relative rounded-2xl border ${colors.border} bg-gradient-to-br ${colors.gradient} p-8 hover:shadow-xl transition-all duration-300 group overflow-hidden`}
+                className={`relative rounded-2xl border ${colors.border} bg-gradient-to-br ${colors.gradient} p-8 overflow-hidden`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -4 }}
               >
                 {/* Decorative math formulas */}
-                <div className="absolute top-4 left-4 text-xs font-mono opacity-0 group-hover:opacity-10 transition-opacity duration-500 text-primary">
+                <div className="absolute top-4 left-4 text-xs font-mono opacity-5 pointer-events-none text-primary">
                   {formulas[0]}
                 </div>
-                <div className="absolute bottom-4 left-8 text-sm font-mono opacity-0 group-hover:opacity-10 transition-opacity duration-500 text-primary">
+                <div className="absolute bottom-4 left-8 text-sm font-mono opacity-5 pointer-events-none text-primary">
                   {formulas[1]}
                 </div>
 
                 <div className="flex items-start gap-4 mb-4">
-                  <motion.div
-                    className={`w-12 h-12 ${colors.bg} rounded-xl flex items-center justify-center shrink-0`}
-                    whileHover={{ rotate: 10 }}
-                  >
+                  <div className={`w-12 h-12 ${colors.bg} rounded-xl flex items-center justify-center shrink-0`}>
                     <Icon className={`w-6 h-6 ${colors.text}`} />
-                  </motion.div>
+                  </div>
                   <div>
                     <h3 className="text-xl font-bold text-primary">{program.title}</h3>
                     <span className={`inline-block text-xs font-medium px-2 py-1 rounded-full mt-1 ${colors.badge}`}>
