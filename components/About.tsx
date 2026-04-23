@@ -39,10 +39,10 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="relative group">
+              <div className="relative">
 
                 {/* Glow */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/30 to-primary/20 blur-2xl opacity-70 group-hover:opacity-100 transition duration-500"></div>
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/30 to-primary/20 blur-2xl opacity-70"></div>
 
                 {/* Image */}
                 <div className="relative w-72 h-80 md:w-80 md:h-[420px] rounded-3xl overflow-hidden border-4 border-accent/20 shadow-2xl">
@@ -50,7 +50,7 @@ export default function About() {
                     src="/images/ben.jpg"
                     alt="בן כפיר - מורה פרטי למתמטיקה"
                     fill
-                    className="object-cover group-hover:scale-105 transition duration-500"
+                    className="object-cover"
                     priority
                   />
                 </div>
@@ -109,7 +109,7 @@ export default function About() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-colors"
               >
                 <MessageCircle className="w-5 h-5" />
                 דברו איתי בוואטסאפ
@@ -137,13 +137,13 @@ export default function About() {
             return (
               <motion.div
                 key={item.title}
-                className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
+                className="bg-white rounded-2xl p-8 text-center shadow-sm"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition">
+                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Icon className="w-8 h-8 text-accent" />
                 </div>
 
