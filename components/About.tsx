@@ -127,7 +127,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           <h2 className="text-section text-primary mb-4">
-            למה Math+?
+            למה מתמטיק?
           </h2>
         </motion.div>
 

@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/40">
-          <p>© {new Date().getFullYear()} Math+ - בן כפיר. כל הזכויות שמורות.</p>
+          <p>© {new Date().getFullYear()} מתמטיק - בן כפיר. כל הזכויות שמורות.</p>
           <a href="#" className="hover:text-white/60 transition-colors">
             מדיניות פרטיות
           </a>
