@@ -11,7 +11,7 @@ import WhatsAppButton from '@/components/WhatsAppButton'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
 
 export const metadata: Metadata = {
-  title: 'הכנה למתמטיקה אקדמית | לפני שנה א׳ ואחרי צבא | Math+',
+  title: 'הכנה למתמטיקה אקדמית | לפני שנה א׳ ואחרי צבא | מתמטיק',
   description:
     'הכנה למתמטיקה אקדמית לפני שנה א׳ - מיפוי פערים, חיזוק יסודות והיכרות עם חשבון אינפיניטסימלי ואלגברה לינארית. מתאים גם למי שחזר מהצבא ולא נגע בחומר שנים. שיעור ניסיון ב-₪99!',
   keywords: [
@@ -121,7 +121,7 @@ export default function PreAcademicPage() {
         ctaText="שיעור ניסיון - ₪99 בלבד"
       />
       <LandingStats />
-      <LandingBenefits title="למה להתכונן עם Math+?" benefits={BENEFITS} />
+      <LandingBenefits title="למה להתכונן עם מתמטיק?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
       <TrialCTABlock headline="מגיעים לתואר עם בסיס חזק - שיעור ניסיון ב-₪99" />
       <LandingFAQ items={FAQ} />
