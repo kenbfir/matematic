@@ -12,7 +12,6 @@ export default function Logo({ size = 'md', variant = 'pill' }: LogoProps) {
   const s = scales[size]
 
   const mathSize = Math.round(36 * s)
-  const plusSize = Math.round(46 * s)
   const lineW = Math.round(62 * s)
   const subtitleSize = Math.round(11 * s)
   const br = Math.round(12 * s)
@@ -24,8 +23,8 @@ export default function Logo({ size = 'md', variant = 'pill' }: LogoProps) {
 
   const inner = (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
-      {/* Math+ row */}
-      <div dir="ltr" style={{ lineHeight: 1, display: 'inline-flex', alignItems: 'baseline' }}>
+      {/* מתמטיק row */}
+      <div style={{ lineHeight: 1 }}>
         <span
           style={{
             fontFamily: 'Rubik, Heebo, sans-serif',
@@ -35,20 +34,7 @@ export default function Logo({ size = 'md', variant = 'pill' }: LogoProps) {
             letterSpacing: '-0.5px',
           }}
         >
-          Math
-        </span>
-        <span
-          style={{
-            fontFamily: 'Rubik, Heebo, sans-serif',
-            fontSize: plusSize,
-            fontWeight: 900,
-            color: '#eab308',
-            lineHeight: 0.85,
-            textShadow: '0 0 18px rgba(234,179,8,0.6), 0 0 36px rgba(234,179,8,0.25)',
-            marginLeft: 2,
-          }}
-        >
-          +
+          מתמטיק
         </span>
       </div>
 
