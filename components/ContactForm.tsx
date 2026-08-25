@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { Send, Phone, MessageCircle, CheckCircle, Shield, Clock, Star, ArrowLeft } from 'lucide-react'
 import { LEVEL_OPTIONS, WHATSAPP_URL, PHONE_NUMBER } from '@/lib/constants'
+import { trackLead } from '@/components/Analytics'
 
 interface FormData {
   name: string
@@ -34,6 +35,7 @@ export default function ContactForm() {
       })
       if (res.ok) {
         setIsSubmitted(true)
+        trackLead()
         reset()
       }
     } catch {
@@ -87,6 +89,7 @@ export default function ContactForm() {
                 <p className="text-text-light mb-6">נחזור אליך בהקדם. בינתיים, אפשר גם לשלוח הודעה ישירה:</p>
                 <a
                   href={WHATSAPP_URL}
+                  onClick={trackLead}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold transition-colors"
@@ -222,6 +225,7 @@ export default function ContactForm() {
 
               <a
                 href={WHATSAPP_URL}
+                onClick={trackLead}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 bg-green-50 hover:bg-green-100 rounded-xl transition-colors mb-3 group"

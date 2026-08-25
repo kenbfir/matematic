@@ -1,6 +1,7 @@
 import { MessageCircle, Phone, Mail } from 'lucide-react'
 import Logo from '@/components/Logo'
 import { NAV_LINKS, WHATSAPP_URL, PHONE_NUMBER } from '@/lib/constants'
+import { trackLead } from '@/components/Analytics'
 
 export default function Footer() {
   return (
@@ -43,6 +44,7 @@ export default function Footer() {
               <li>
                 <a
                   href={WHATSAPP_URL}
+                  onClick={trackLead}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors"

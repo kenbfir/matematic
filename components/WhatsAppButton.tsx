@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, X } from 'lucide-react'
 import { WHATSAPP_URL } from '@/lib/constants'
+import { trackLead } from '@/components/Analytics'
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false)
@@ -42,6 +43,7 @@ export default function WhatsAppButton() {
       {/* Button */}
       <a
         href={WHATSAPP_URL}
+        onClick={trackLead}
         target="_blank"
         rel="noopener noreferrer"
         className="float-animation block bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 transition-colors"

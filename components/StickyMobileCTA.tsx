@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, MessageCircle } from 'lucide-react'
 import { WHATSAPP_URL } from '@/lib/constants'
+import { trackLead } from '@/components/Analytics'
 
 export default function StickyMobileCTA() {
   const [show, setShow] = useState(false)
@@ -30,6 +31,7 @@ export default function StickyMobileCTA() {
           <div className="flex gap-2">
             <a
               href={WHATSAPP_URL}
+              onClick={trackLead}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold text-base transition-colors"

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Target, Monitor, TrendingUp, Heart, MessageCircle } from 'lucide-react'
 import { DIFFERENTIATORS, WHATSAPP_URL } from '@/lib/constants'
+import { trackLead } from '@/components/Analytics'
 
 const iconMap = {
   Target,
@@ -107,6 +108,7 @@ export default function About() {
 
               <a
                 href={WHATSAPP_URL}
+                onClick={trackLead}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-colors"

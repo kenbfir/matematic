@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, MessageCircle, Shield, Clock, CheckCircle } from 'lucide-react'
 import { WHATSAPP_URL } from '@/lib/constants'
+import { trackLead } from '@/components/Analytics'
 
 interface TrialCTABlockProps {
   headline?: string
@@ -47,6 +48,7 @@ export default function TrialCTABlock({
             </a>
             <a
               href={WHATSAPP_URL}
+              onClick={trackLead}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-xl text-lg font-bold transition-all hover:scale-105 flex items-center justify-center gap-2"

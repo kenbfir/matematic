@@ -78,6 +78,10 @@ This project uses a 3-agent specialized workflow to manage market data, brand vo
 - **Role:** PPC strategy, RTL-UX optimization, and WhatsApp lead-flow design.
 - **Use for:** Auditing `StickyMobileCTA.tsx`, generating Google Ads copy, and designing `wa.me` pre-filled messages.
 
+### 4. levelup-ui-architect (The Builder)
+- **Role:** Frontend engineering and brand design implementation.
+- **Use for:** Building/auditing components in Next.js/Tailwind, implementing Framer Motion animations, and ensuring pixel-perfect RTL compliance.
+
 ## Persistent Memory
 Each agent maintains its own institutional knowledge at:
 `C:\Users\KenBfirxd\.claude\agent-memory\[agent-name]\`

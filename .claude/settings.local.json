@@ -62,7 +62,16 @@
       "Bash(cat C:\\\\\\\\Users\\\\\\\\KENBFI~1\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\claude\\\\\\\\C--Users-KenBfirxd-Desktop-levelup\\\\\\\\acea13cc-500a-4734-b188-36e92e5bc7fa\\\\\\\\tasks\\\\\\\\bsd5195gk.output)",
       "Read(//c/Users/KenBfirxd/AppData/Local/Temp/claude/C--Users-KenBfirxd-Desktop-levelup/acea13cc-500a-4734-b188-56e92e5bc7fa/tasks/**)",
       "Read(//c/Users/KenBfirxd/AppData/Local/Temp/claude/C--Users-KenBfirxd-Desktop-levelup/acea13cc-500a-4734-b188-b188-4734-b188-56e92e5bc7fa/tasks/**)",
-      "Bash(xargs tail *)"
+      "Bash(xargs tail *)",
+      "Bash(taskkill /F /IM node.exe /T)",
+      "Bash(taskkill /F /IM next.exe /T)",
+      "Bash(git diff *)",
+      "Bash(npx eslint *)",
+      "Bash(C:/Users/KenBfirxd/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/scripts/start-server.sh --project-dir \"c:/Users/KenBfirxd/Desktop/levelup\")",
+      "Bash(bash \"C:/Users/KenBfirxd/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/skills/brainstorming/scripts/start-server.sh\" --project-dir \"c:/Users/KenBfirxd/Desktop/levelup\")",
+      "Bash(bash \"C:/Users/KenBfirxd/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/skills/brainstorming/scripts/stop-server.sh\" \"c:/Users/KenBfirxd/Desktop/levelup/.superpowers/brainstorm/1009-1777207406\")",
+      "Bash(C:/Users/KenBfirxd/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/scripts/start-server.sh *)",
+      "Bash(/c/Users/KenBfirxd/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/skills/brainstorming/scripts/start-server.sh *)"
     ]
   },
   "enabledPlugins": {

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Heebo } from 'next/font/google'
+import Analytics from '@/components/Analytics'
 import './globals.css'
 
 const heebo = Heebo({
@@ -81,7 +82,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${heebo.className} antialiased`}>{children}</body>
+      <body className={`${heebo.className} antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
