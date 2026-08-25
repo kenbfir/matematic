@@ -1,3 +1,5 @@
+'use client'
+
 import { MessageCircle, Phone, Mail } from 'lucide-react'
 import Logo from '@/components/Logo'
 import { NAV_LINKS, WHATSAPP_URL, PHONE_NUMBER } from '@/lib/constants'

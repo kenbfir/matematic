@@ -133,6 +133,10 @@ export async function fetchFacebookEmails(): Promise<ParsedEmail[]> {
 
       for await (const msg of messages) {
         try {
+          if (!msg.source) {
+            console.error(`No source for email UID ${msg.uid}, skipping`)
+            continue
+          }
           const parsed = await simpleParser(msg.source)
           const html = parsed.html || ''
           const text = parsed.text || stripHtml(typeof html === 'string' ? html : '')
