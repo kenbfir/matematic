@@ -248,7 +248,7 @@ export default function Testimonials() {
         >
           <h2 className="text-section text-primary mb-4">מה אומרים התלמידים</h2>
           <p className="text-text-light max-w-2xl mx-auto text-lg">
-            הודעות אמיתיות מתלמידים והורים
+            הודעות מהורים ותלמידים
           </p>
         </motion.div>
 
