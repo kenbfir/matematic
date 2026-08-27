@@ -145,7 +145,7 @@ export default function LandingContact({
                 className="w-full bg-accent hover:bg-accent-dark text-gray-900 py-4 rounded-xl font-bold text-lg transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? 'שולח...' : (
-                  <><Send className="w-5 h-5" />שליחה - שיעור ניסיון ב-₪99</>
+                  <><Send className="w-5 h-5" />שליחה</>
                 )}
               </button>
 

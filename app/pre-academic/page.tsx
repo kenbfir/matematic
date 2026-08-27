@@ -13,7 +13,7 @@ import StickyMobileCTA from '@/components/StickyMobileCTA'
 export const metadata: Metadata = {
   title: 'הכנה למתמטיקה אקדמית | לפני שנה א׳ ואחרי צבא | Matematic',
   description:
-    'הכנה למתמטיקה אקדמית לפני שנה א׳ - מיפוי פערים, חיזוק יסודות והיכרות עם חשבון אינפיניטסימלי ואלגברה לינארית. מתאים גם למי שחזר מהצבא ולא נגע בחומר שנים. שיעור ניסיון ב-₪99!',
+    'הכנה למתמטיקה אקדמית לפני שנה א׳ - מיפוי פערים, חיזוק יסודות והיכרות עם חשבון אינפיניטסימלי ואלגברה לינארית. מתאים גם למי שחזר מהצבא ולא נגע בחומר שנים. צרו קשר עוד היום!',
   keywords: [
     'הכנה למתמטיקה אקדמית',
     'הכנה לאינפי 1',
@@ -117,13 +117,13 @@ export default function PreAcademicPage() {
         headline="מתמטיקה מפחידה אותך לפני התואר?"
         highlightedWord="נכנסים מוכנים."
         subheadline="בין אם סיימת בגרות לאחרונה ובין אם לא נגעת במתמטיקה שנים - נמפה את הפערים ונסגור אותם לפני שנה א׳."
-        bullets={['מיפוי פערים אישי', 'הכנה לאינפי 1 ולינארית', 'מתאים גם אחרי הצבא', 'שיעור ניסיון ב-₪99']}
-        ctaText="שיעור ניסיון - ₪99 בלבד"
+        bullets={['מיפוי פערים אישי', 'הכנה לאינפי 1 ולינארית', 'מתאים גם אחרי הצבא']}
+        ctaText="קביעת שיעור"
       />
       <LandingStats />
       <LandingBenefits title="למה להתכונן עם Matematic?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
-      <TrialCTABlock headline="מגיעים לתואר עם בסיס חזק - שיעור ניסיון ב-₪99" />
+      <TrialCTABlock headline="מגיעים לתואר עם בסיס חזק" />
       <LandingFAQ items={FAQ} />
       <LandingContact
         defaultLevel="pre-academic"

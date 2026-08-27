@@ -43,7 +43,7 @@ export default function StickyMobileCTA() {
               href="#contact"
               className="flex-1 flex items-center justify-center gap-2 border-2 border-accent text-accent bg-transparent hover:bg-accent/10 py-3 rounded-xl font-bold text-base transition-colors"
             >
-              שיעור ניסיון
+              קביעת שיעור
               <ArrowLeft className="w-4 h-4" />
             </a>
           </div>

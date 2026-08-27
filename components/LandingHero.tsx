@@ -19,7 +19,7 @@ export default function LandingHero({
   highlightedWord,
   subheadline,
   bullets,
-  ctaText = 'שיעור ניסיון במחיר מוזל',
+  ctaText = 'קביעת שיעור',
 }: LandingHeroProps) {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-bl from-primary via-primary-light to-primary">

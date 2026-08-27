@@ -10,7 +10,7 @@ interface TrialCTABlockProps {
 }
 
 export default function TrialCTABlock({
-  headline = 'מוכן להתחיל? שיעור ניסיון ב-₪99 בלבד',
+  headline = 'מוכן להתחיל?',
 }: TrialCTABlockProps) {
   return (
     <section className="py-16 px-4 bg-primary text-white text-center">
@@ -21,7 +21,7 @@ export default function TrialCTABlock({
           viewport={{ once: true }}
         >
           <h2 className="text-2xl md:text-4xl font-bold mb-3">{headline}</h2>
-          <p className="text-white/70 mb-8 text-lg">ללא התחייבות - אם לא מרוצים, לא משלמים</p>
+          <p className="text-white/70 mb-8 text-lg">ללא התחייבות להמשך</p>
 
           <div className="flex justify-center gap-8 mb-10 flex-wrap">
             <div className="flex items-center gap-2 text-white/80">
@@ -43,7 +43,7 @@ export default function TrialCTABlock({
               href="#contact"
               className="cta-glow bg-accent hover:bg-accent-dark text-gray-900 px-10 py-4 rounded-xl text-lg font-bold transition-all hover:scale-105 flex items-center justify-center gap-2"
             >
-              שיעור ניסיון - ₪99 בלבד
+              קביעת שיעור
               <ArrowLeft className="w-5 h-5" />
             </a>
             <a

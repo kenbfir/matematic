@@ -187,7 +187,7 @@ export default function ContactForm() {
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        שליחה - שיעור ניסיון במחיר מוזל
+                        שליחה
                       </>
                     )}
                   </button>
@@ -259,7 +259,7 @@ export default function ContactForm() {
                 backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0v40M0 20h40' stroke='%23fff' stroke-width='0.5' fill='none'/%3E%3C/svg%3E")`,
               }} />
               <div className="relative">
-                <h3 className="text-lg font-bold mb-2">שיעור ניסיון במחיר מוזל</h3>
+                <h3 className="text-lg font-bold mb-2">קביעת שיעור</h3>
                 <p className="text-white/70 text-sm leading-relaxed mb-4">
                   בשיעור ההיכרות נאבחן את הרמה, נבין את הצרכים ונבנה תוכנית לימודים
                   מותאמת - בלי שום התחייבות.
