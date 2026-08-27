@@ -11,7 +11,7 @@ import WhatsAppButton from '@/components/WhatsAppButton'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
 
 export const metadata: Metadata = {
-  title: 'מורה פרטי למתמטיקה - חטיבת ביניים כיתות ז׳-ט׳ | שיעורים אונליין | מתמטיק',
+  title: 'מורה פרטי למתמטיקה - חטיבת ביניים כיתות ז׳-ט׳ | שיעורים אונליין | Matematic',
   description:
     'שיעורים פרטיים במתמטיקה לחטיבת ביניים - כיתות ז, ח, ט. בניית בסיס חזק, הכנה למבחנים, ולמידה בלי חרדות. מורה מנוסה עם תואר בהצטיינות. שיעור ניסיון ב-₪99!',
   keywords: [
@@ -61,7 +61,7 @@ export default function MiddleSchoolPage() {
         ctaText="שיעור ניסיון - ₪99 בלבד"
       />
       <LandingStats />
-      <LandingBenefits title="למה הורים בוחרים במתמטיק לילדים שלהם?" benefits={BENEFITS} />
+      <LandingBenefits title="למה הורים בוחרים ב-Matematic לילדים שלהם?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
       <TrialCTABlock headline="רוצים לראות שינוי? שיעור ניסיון ב-₪99 ללא התחייבות" />
       <LandingFAQ items={FAQ} />

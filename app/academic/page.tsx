@@ -11,7 +11,7 @@ import WhatsAppButton from '@/components/WhatsAppButton'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
 
 export const metadata: Metadata = {
-  title: 'שיעורים פרטיים במתמטיקה לסטודנטים | אינפי, לינארית, סטטיסטיקה | מתמטיק',
+  title: 'שיעורים פרטיים במתמטיקה לסטודנטים | אינפי, לינארית, סטטיסטיקה | Matematic',
   description:
     'שיעורים פרטיים במתמטיקה אקדמית - חשבון אינפיניטסימלי, אלגברה לינארית, הסתברות ומתמטיקה בדידה. מורה עם תואר בהצטיינות מהאוניברסיטה העברית. שיעור ניסיון ב-₪99!',
   keywords: [
@@ -61,7 +61,7 @@ export default function AcademicPage() {
         ctaText="שיעור ניסיון - ₪99 בלבד"
       />
       <LandingStats />
-      <LandingBenefits title="למה סטודנטים בוחרים במתמטיק?" benefits={BENEFITS} />
+      <LandingBenefits title="למה סטודנטים בוחרים ב-Matematic?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
       <TrialCTABlock headline="תקוע בקורס? שיעור ניסיון ב-₪99 - נסדר את זה" />
       <LandingFAQ items={FAQ} />

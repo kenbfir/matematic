@@ -11,30 +11,42 @@ export default function Logo({ size = 'md', variant = 'pill' }: LogoProps) {
   const scales = { sm: 0.85, md: 1, lg: 1.4 }
   const s = scales[size]
 
-  const mathSize = Math.round(36 * s)
-  const lineW = Math.round(62 * s)
+  const wordSize = Math.round(34 * s)
+  const lineW = Math.round(120 * s)
   const subtitleSize = Math.round(11 * s)
   const br = Math.round(12 * s)
 
   const isPill = variant === 'pill'
 
-  const mathColor = isPill ? '#0f766e' : '#ffffff'
+  const baseColor = isPill ? '#0f766e' : '#ffffff'
   const subColor = isPill ? 'rgba(255,255,255,0.72)' : 'rgba(255,255,255,0.65)'
 
   const inner = (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
-      {/* מתמטיק row */}
-      <div style={{ lineHeight: 1 }}>
+      {/* Matem + atic row */}
+      <div dir="ltr" style={{ lineHeight: 1, display: 'inline-flex', alignItems: 'baseline' }}>
         <span
           style={{
             fontFamily: 'Rubik, Heebo, sans-serif',
-            fontSize: mathSize,
+            fontSize: wordSize,
             fontWeight: 900,
-            color: mathColor,
+            color: baseColor,
             letterSpacing: '-0.5px',
           }}
         >
-          מתמטיק
+          Matem
+        </span>
+        <span
+          style={{
+            fontFamily: 'Rubik, Heebo, sans-serif',
+            fontSize: wordSize,
+            fontWeight: 900,
+            color: '#eab308',
+            letterSpacing: '-0.5px',
+            textShadow: '0 0 18px rgba(234,179,8,0.6), 0 0 36px rgba(234,179,8,0.25)',
+          }}
+        >
+          atic
         </span>
       </div>
 

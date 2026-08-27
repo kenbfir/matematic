@@ -11,7 +11,7 @@ import WhatsAppButton from '@/components/WhatsAppButton'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
 
 export const metadata: Metadata = {
-  title: 'הכנה לבגרות במתמטיקה | 3, 4, 5 יחידות - שיעורים פרטיים אונליין | מתמטיק',
+  title: 'הכנה לבגרות במתמטיקה | 3, 4, 5 יחידות - שיעורים פרטיים אונליין | Matematic',
   description:
     'שיעורים פרטיים במתמטיקה לבגרות - 3, 4, 5 יחידות. מורה פרטי עם 100 בבגרות ותואר בהצטיינות. שיטה מוכחת, ליווי אישי, ולמידה בלי חרדות. שיעור ניסיון ב-₪99!',
   keywords: [
@@ -62,7 +62,7 @@ export default function BagrutPage() {
         ctaText="שיעור ניסיון - ₪99 בלבד"
       />
       <LandingStats />
-      <LandingBenefits title="למה תלמידי בגרות בוחרים במתמטיק?" benefits={BENEFITS} />
+      <LandingBenefits title="למה תלמידי בגרות בוחרים ב-Matematic?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
       <TrialCTABlock headline="מוכן לשפר את ציון הבגרות? שיעור ניסיון ב-₪99" />
       <LandingFAQ items={FAQ} />

@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
       })
 
       await transporter.sendMail({
-        from: `"מתמטיק - טופס יצירת קשר" <${process.env.SMTP_USER}>`,
+        from: `"Matematic - טופס יצירת קשר" <${process.env.SMTP_USER}>`,
         to: process.env.EMAIL_TO,
         subject: `פניה חדשה מ${name}`,
         html: `

@@ -54,7 +54,7 @@ export default function SocialProofToast() {
           </div>
           <div>
             <p className="text-sm font-medium text-text">{MESSAGES[messageIndex]}</p>
-            <p className="text-xs text-text-lighter">מתמטיק</p>
+            <p className="text-xs text-text-lighter">Matematic</p>
           </div>
         </motion.div>
       )}
