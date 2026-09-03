@@ -52,7 +52,7 @@ Online math tutoring business website for Ben Kfir (LevelUp). Hebrew-only (RTL),
 
 ## Lead Generation Focus
 - Every section should drive toward the contact form (`#contact`) or WhatsApp
-- The primary CTA across the site is "שיעור ניסיון במחיר מוזל" (discounted trial lesson)
+- The primary CTA across the site is "קביעת שיעור" (book a lesson) — no discount framing; full price from lesson one
 - Trust signals appear throughout: "100+ students", "90% grade improvement", "4+ years experience"
 - Testimonials are styled as WhatsApp screenshots to feel authentic
 

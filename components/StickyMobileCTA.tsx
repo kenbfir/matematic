@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, MessageCircle } from 'lucide-react'
 import { WHATSAPP_URL } from '@/lib/constants'
-import { trackLead } from '@/components/Analytics'
+import { trackLead, markCtaClick } from '@/components/Analytics'
 
-export default function StickyMobileCTA() {
+export default function StickyMobileCTA({ variant }: { variant?: string }) {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function StickyMobileCTA() {
           <div className="flex gap-2">
             <a
               href={WHATSAPP_URL}
-              onClick={trackLead}
+              onClick={() => trackLead('sticky_mobile_whatsapp', variant)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold text-base transition-colors"
@@ -41,6 +41,7 @@ export default function StickyMobileCTA() {
             </a>
             <a
               href="#contact"
+              onClick={() => markCtaClick('sticky_mobile')}
               className="flex-1 flex items-center justify-center gap-2 border-2 border-accent text-accent bg-transparent hover:bg-accent/10 py-3 rounded-xl font-bold text-base transition-colors"
             >
               קביעת שיעור

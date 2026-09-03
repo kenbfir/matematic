@@ -42,11 +42,36 @@ export default function Analytics() {
   )
 }
 
-export function trackLead() {
+const LAST_CTA_STORAGE_KEY = 'lu_last_cta'
+
+// Records the CTA a visitor clicked that only scrolls to the contact form
+// (no lead is generated yet), so the eventual form-submit trackLead() call
+// can still attribute the lead to it.
+export function markCtaClick(ctaLocation: string) {
   if (typeof window === 'undefined') return
+  try {
+    window.sessionStorage.setItem(LAST_CTA_STORAGE_KEY, ctaLocation)
+  } catch {
+    // sessionStorage unavailable (private mode, etc.) - attribution is best-effort
+  }
+}
+
+export function trackLead(ctaLocation: string, variant?: string) {
+  if (typeof window === 'undefined') return
+  let resolvedLocation = ctaLocation
+  if (ctaLocation === 'contact_form' || ctaLocation === 'landing_contact_form') {
+    try {
+      resolvedLocation = window.sessionStorage.getItem(LAST_CTA_STORAGE_KEY) || ctaLocation
+    } catch {
+      // fall back to the given location
+    }
+  }
   const w = window as any
   if (typeof w.gtag === 'function') {
-    w.gtag('event', 'generate_lead')
+    w.gtag('event', 'generate_lead', {
+      cta_location: resolvedLocation,
+      ...(variant ? { variant } : {}),
+    })
   }
   if (typeof w.fbq === 'function') {
     w.fbq('track', 'Lead')

@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import { cookies } from 'next/headers'
+import { getLandingVariant } from '@/lib/landingVariants'
+import { cookieNameFor } from '@/lib/abVariant'
 import LandingHero from '@/components/LandingHero'
 import LandingStats from '@/components/LandingStats'
 import LandingBenefits from '@/components/LandingBenefits'
@@ -48,25 +51,25 @@ const FAQ = [
 ]
 
 export default function MiddleSchoolPage() {
+  const variant = cookies().get(cookieNameFor('middle-school'))?.value
+  const hero = getLandingVariant('middle-school', variant === 'b' || variant === 'c' ? variant : 'a')
+
   return (
     <>
-      <UrgencyStrip spotsLeft={3} month="מאי" />
-      <LandingHero
-        badge="הורים ממליצים - דירוג 5 כוכבים"
-        headline="מורה פרטי למתמטיקה לחטיבת ביניים -"
-        highlightedWord="הילד שלכם יכול לאהוב מתמטיקה"
-        subheadline="כל ילד יכול להצליח במתמטיקה עם הגישה הנכונה. שיעורים פרטיים אונליין לכיתות ז׳-ט׳ עם מורה מנוסה שבונה ביטחון אמיתי - ומביא תוצאות."
-        bullets={['מותאם לקצב הילד', 'שיפור ביטחון עצמי', 'הכנה למבחנים ולמיצ"ב']}
-        ctaText="קביעת שיעור"
-      />
+      <UrgencyStrip spotsLeft={3} />
+      <LandingHero {...hero} />
       <LandingStats />
       <LandingBenefits title="למה הורים בוחרים ב-Matematic לילדים שלהם?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
-      <TrialCTABlock headline="רוצים לראות שינוי?" />
+      <TrialCTABlock headline="רוצים לראות שינוי?" variant={variant} />
       <LandingFAQ items={FAQ} />
-      <LandingContact defaultLevel="middle-school" headline="השאירו פרטים - נתאם שיעור היכרות לילד" />
-      <WhatsAppButton />
-      <StickyMobileCTA />
+      <LandingContact
+        defaultLevel="middle-school"
+        headline="השאירו פרטים - נתאם שיעור היכרות לילד"
+        variant={variant}
+      />
+      <WhatsAppButton variant={variant} />
+      <StickyMobileCTA variant={variant} />
     </>
   )
 }

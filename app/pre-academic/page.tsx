@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import { cookies } from 'next/headers'
+import { getLandingVariant } from '@/lib/landingVariants'
+import { cookieNameFor } from '@/lib/abVariant'
 import LandingHero from '@/components/LandingHero'
 import LandingStats from '@/components/LandingStats'
 import LandingBenefits from '@/components/LandingBenefits'
@@ -109,28 +112,25 @@ const FAQ = [
 ]
 
 export default function PreAcademicPage() {
+  const variant = cookies().get(cookieNameFor('pre-academic'))?.value
+  const hero = getLandingVariant('pre-academic', variant === 'b' || variant === 'c' ? variant : 'a')
+
   return (
     <>
-      <UrgencyStrip spotsLeft={4} month="מאי" />
-      <LandingHero
-        badge="100+ תלמידים - 90% שיפרו ציון"
-        headline="מתמטיקה מפחידה אותך לפני התואר?"
-        highlightedWord="נכנסים מוכנים."
-        subheadline="בין אם סיימת בגרות לאחרונה ובין אם לא נגעת במתמטיקה שנים - נמפה את הפערים ונסגור אותם לפני שנה א׳."
-        bullets={['מיפוי פערים אישי', 'הכנה לאינפי 1 ולינארית', 'מתאים גם אחרי הצבא']}
-        ctaText="קביעת שיעור"
-      />
+      <UrgencyStrip spotsLeft={4} />
+      <LandingHero {...hero} />
       <LandingStats />
       <LandingBenefits title="למה להתכונן עם Matematic?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
-      <TrialCTABlock headline="מגיעים לתואר עם בסיס חזק" />
+      <TrialCTABlock headline="מגיעים לתואר עם בסיס חזק" variant={variant} />
       <LandingFAQ items={FAQ} />
       <LandingContact
         defaultLevel="pre-academic"
         headline="השאירו פרטים - נבנה תוכנית הכנה מותאמת אישית"
+        variant={variant}
       />
-      <WhatsAppButton />
-      <StickyMobileCTA />
+      <WhatsAppButton variant={variant} />
+      <StickyMobileCTA variant={variant} />
     </>
   )
 }

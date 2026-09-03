@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ArrowLeft, Star, CheckCircle } from 'lucide-react'
+import { markCtaClick } from '@/components/Analytics'
 
 interface LandingHeroProps {
   badge: string
@@ -107,6 +108,7 @@ export default function LandingHero({
             >
               <a
                 href="#contact"
+                onClick={() => markCtaClick('hero')}
                 className="cta-glow bg-accent hover:bg-accent-dark text-gray-900 px-10 py-4 rounded-xl text-lg font-bold transition-colors flex items-center gap-2"
               >
                 {ctaText}

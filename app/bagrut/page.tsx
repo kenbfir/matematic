@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import { cookies } from 'next/headers'
+import { getLandingVariant } from '@/lib/landingVariants'
+import { cookieNameFor } from '@/lib/abVariant'
 import LandingHero from '@/components/LandingHero'
 import LandingStats from '@/components/LandingStats'
 import LandingBenefits from '@/components/LandingBenefits'
@@ -49,21 +52,17 @@ const FAQ = [
 ]
 
 export default function BagrutPage() {
+  const variant = cookies().get(cookieNameFor('bagrut'))?.value
+  const hero = getLandingVariant('bagrut', variant === 'b' || variant === 'c' ? variant : 'a')
+
   return (
     <>
-      <UrgencyStrip spotsLeft={3} month="מאי" />
-      <LandingHero
-        badge="100 בבגרות 5 יחידות - המורה שהיה שם"
-        headline="הכנה לבגרות במתמטיקה -"
-        highlightedWord="להיכנס לבחינה בביטחון מלא"
-        subheadline="שיעורים פרטיים אונליין ל-3, 4, 5 יחידות עם מורה שעלה מ-3 יחידות ל-100 בבגרות ותואר בהצטיינות מהאוניברסיטה העברית. שיטה מוכחת, ליווי אישי עד יום הבחינה."
-        bullets={['שיפור ממוצע 25 נקודות', 'ליווי עד יום הבחינה', 'זמינות מלאה לכל שאלה']}
-        ctaText="קביעת שיעור"
-      />
+      <UrgencyStrip spotsLeft={3} />
+      <LandingHero {...hero} />
       <LandingStats />
       <LandingBenefits title="למה תלמידי בגרות בוחרים ב-Matematic?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
-      <TrialCTABlock headline="מוכן לשפר את ציון הבגרות?" />
+      <TrialCTABlock headline="מוכן לשפר את ציון הבגרות?" variant={variant} />
       <LandingFAQ items={FAQ} />
       <LandingContact
         defaultLevel="bagrut-5"
@@ -73,9 +72,10 @@ export default function BagrutPage() {
           { value: 'bagrut-5', label: 'בגרות 5 יחידות' },
         ]}
         headline="השאירו פרטים - נבנה תוכנית הכנה לבגרות"
+        variant={variant}
       />
-      <WhatsAppButton />
-      <StickyMobileCTA />
+      <WhatsAppButton variant={variant} />
+      <StickyMobileCTA variant={variant} />
     </>
   )
 }

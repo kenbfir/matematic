@@ -46,7 +46,7 @@ export default function Footer() {
               <li>
                 <a
                   href={WHATSAPP_URL}
-                  onClick={trackLead}
+                  onClick={() => trackLead('footer_whatsapp')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors"

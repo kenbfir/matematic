@@ -108,7 +108,7 @@ export default function About() {
 
               <a
                 href={WHATSAPP_URL}
-                onClick={trackLead}
+                onClick={() => trackLead('about_whatsapp')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-medium transition-colors"

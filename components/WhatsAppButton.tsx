@@ -6,7 +6,7 @@ import { MessageCircle, X } from 'lucide-react'
 import { WHATSAPP_URL } from '@/lib/constants'
 import { trackLead } from '@/components/Analytics'
 
-export default function WhatsAppButton() {
+export default function WhatsAppButton({ variant }: { variant?: string }) {
   const [showTooltip, setShowTooltip] = useState(false)
 
   // Show tooltip after 5 seconds
@@ -43,7 +43,7 @@ export default function WhatsAppButton() {
       {/* Button */}
       <a
         href={WHATSAPP_URL}
-        onClick={trackLead}
+        onClick={() => trackLead('whatsapp_float', variant)}
         target="_blank"
         rel="noopener noreferrer"
         className="float-animation block bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 transition-colors"

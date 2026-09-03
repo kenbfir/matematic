@@ -3,14 +3,16 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, MessageCircle, Shield, Clock, CheckCircle } from 'lucide-react'
 import { WHATSAPP_URL } from '@/lib/constants'
-import { trackLead } from '@/components/Analytics'
+import { trackLead, markCtaClick } from '@/components/Analytics'
 
 interface TrialCTABlockProps {
   headline?: string
+  variant?: string
 }
 
 export default function TrialCTABlock({
   headline = 'מוכן להתחיל?',
+  variant,
 }: TrialCTABlockProps) {
   return (
     <section className="py-16 px-4 bg-primary text-white text-center">
@@ -41,6 +43,7 @@ export default function TrialCTABlock({
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="#contact"
+              onClick={() => markCtaClick('trial_cta_block')}
               className="cta-glow bg-accent hover:bg-accent-dark text-gray-900 px-10 py-4 rounded-xl text-lg font-bold transition-all hover:scale-105 flex items-center justify-center gap-2"
             >
               קביעת שיעור
@@ -48,7 +51,7 @@ export default function TrialCTABlock({
             </a>
             <a
               href={WHATSAPP_URL}
-              onClick={trackLead}
+              onClick={() => trackLead('trial_cta_block_whatsapp', variant)}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-xl text-lg font-bold transition-all hover:scale-105 flex items-center justify-center gap-2"
