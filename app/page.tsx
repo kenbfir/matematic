@@ -8,9 +8,9 @@ import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
-import WhatsAppButton from '@/components/WhatsAppButton'
 import SocialProofToast from '@/components/SocialProofToast'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
+import StickyContactSidebar from '@/components/StickyContactSidebar'
 
 export default function Home() {
   return (
@@ -27,9 +27,9 @@ export default function Home() {
         <ContactForm />
       </main>
       <Footer />
-      <WhatsAppButton />
       <SocialProofToast />
       <StickyMobileCTA />
+      <StickyContactSidebar />
     </>
   )
 }

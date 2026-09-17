@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 const STATS = [
   { value: '100+', label: 'תלמידים מרוצים' },
-  { value: '25', label: 'נקודות שיפור ממוצע בבגרות' },
+  { value: '25', label: 'נקודות שיפור ממוצע בציון' },
   { value: '90%', label: 'מהתלמידים שיפרו ציון' },
   { value: '4+', label: 'שנות ניסיון' },
 ]

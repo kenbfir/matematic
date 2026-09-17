@@ -189,6 +189,12 @@ export const TESTIMONIALS = [
   },
 ]
 
+// Shown only on the price-transparency (variant C) arm of the PPC landing pages.
+export const PRICE_FAQ_ITEM = {
+  question: 'כמה עולה שיעור?',
+  answer: 'מחיר שיעור פרטי הוא ₪180 לשעה, בכל הרמות. צרו קשר לתיאום שיעור.',
+}
+
 export const FAQ_ITEMS = [
   {
     question: 'איך עובדים השיעורים האונליין?',
@@ -201,10 +207,6 @@ export const FAQ_ITEMS = [
   {
     question: 'מה מדיניות הביטולים?',
     answer: 'ניתן לבטל שיעור עד 24 שעות לפני המועד המתוכנן ללא חיוב. ביטול מאוחר יותר יחויב בתשלום מלא. במקרים חריגים ניתן לתאם שיעור חלופי.',
-  },
-  {
-    question: 'כמה עולה שיעור?',
-    answer: 'מחיר שיעור פרטי הוא ₪180 לשעה, בכל הרמות. צרו קשר לתיאום שיעור.',
   },
   {
     question: 'באיזו פלטפורמה משתמשים?',

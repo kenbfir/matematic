@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { getLandingVariant } from '@/lib/landingVariants'
 import { cookieNameFor } from '@/lib/abVariant'
+import { PRICE_FAQ_ITEM } from '@/lib/constants'
 import LandingHero from '@/components/LandingHero'
 import LandingStats from '@/components/LandingStats'
 import LandingBenefits from '@/components/LandingBenefits'
@@ -10,8 +11,8 @@ import TrialCTABlock from '@/components/TrialCTABlock'
 import LandingFAQ from '@/components/LandingFAQ'
 import LandingContact from '@/components/LandingContact'
 import UrgencyStrip from '@/components/UrgencyStrip'
-import WhatsAppButton from '@/components/WhatsAppButton'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
+import StickyContactSidebar from '@/components/StickyContactSidebar'
 
 export const metadata: Metadata = {
   title: 'הכנה לבגרות במתמטיקה | 3, 4, 5 יחידות - שיעורים פרטיים אונליין | Matematic',
@@ -32,7 +33,7 @@ const BENEFITS = [
   { icon: 'Target', title: 'מותאם לרמה שלך', description: 'תוכנית לימודים אישית ל-3, 4 או 5 יחידות - בדיוק מה שאתה צריך למבחן' },
   { icon: 'Heart', title: 'בלי חרדת מבחנים', description: 'סביבה נעימה ותומכת. לומדים להתמודד עם הבחינה בביטחון ובלי לחץ' },
   { icon: 'BookOpen', title: 'בגרויות אמיתיות', description: 'עובדים על מבחני בגרות משנים קודמות, חוסכים טעויות נפוצות וחוסכים נקודות' },
-  { icon: 'Monitor', title: 'אונליין מהבית', description: 'שיעורים ב-Teams עם לוח לבן דיגיטלי - בנוחות מהסלון, בלי נסיעות' },
+  { icon: 'Monitor', title: 'אונליין מהבית', description: 'שיעורים ב-Teams עם שיתוף מסך - בנוחות מהסלון, בלי נסיעות' },
   { icon: 'TrendingUp', title: 'תוצאות מוכחות', description: 'תלמידים שיפרו בממוצע 25 נקודות בציון הבגרות - עם שיטה ממוקדת' },
   { icon: 'Award', title: 'מורה שהיה שם', description: 'עליתי מ-3 ל-5 יחידות וקיבלתי 100 בבגרות. אני יודע בדיוק מה צריך לעשות' },
 ]
@@ -54,16 +55,17 @@ const FAQ = [
 export default function BagrutPage() {
   const variant = cookies().get(cookieNameFor('bagrut'))?.value
   const hero = getLandingVariant('bagrut', variant === 'b' || variant === 'c' ? variant : 'a')
+  const faq = variant === 'c' ? [...FAQ, PRICE_FAQ_ITEM] : FAQ
 
   return (
     <>
-      <UrgencyStrip spotsLeft={3} />
+      <UrgencyStrip />
       <LandingHero {...hero} />
       <LandingStats />
       <LandingBenefits title="למה תלמידי בגרות בוחרים ב-Matematic?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
       <TrialCTABlock headline="מוכן לשפר את ציון הבגרות?" variant={variant} />
-      <LandingFAQ items={FAQ} />
+      <LandingFAQ items={faq} />
       <LandingContact
         defaultLevel="bagrut-5"
         levelOptions={[
@@ -74,8 +76,8 @@ export default function BagrutPage() {
         headline="השאירו פרטים - נבנה תוכנית הכנה לבגרות"
         variant={variant}
       />
-      <WhatsAppButton variant={variant} />
       <StickyMobileCTA variant={variant} />
+      <StickyContactSidebar variant={variant} />
     </>
   )
 }

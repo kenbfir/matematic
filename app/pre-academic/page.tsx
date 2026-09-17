@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { getLandingVariant } from '@/lib/landingVariants'
 import { cookieNameFor } from '@/lib/abVariant'
+import { PRICE_FAQ_ITEM } from '@/lib/constants'
 import LandingHero from '@/components/LandingHero'
 import LandingStats from '@/components/LandingStats'
 import LandingBenefits from '@/components/LandingBenefits'
@@ -10,8 +11,8 @@ import TrialCTABlock from '@/components/TrialCTABlock'
 import LandingFAQ from '@/components/LandingFAQ'
 import LandingContact from '@/components/LandingContact'
 import UrgencyStrip from '@/components/UrgencyStrip'
-import WhatsAppButton from '@/components/WhatsAppButton'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
+import StickyContactSidebar from '@/components/StickyContactSidebar'
 
 export const metadata: Metadata = {
   title: 'הכנה למתמטיקה אקדמית | לפני שנה א׳ ואחרי צבא | Matematic',
@@ -114,23 +115,24 @@ const FAQ = [
 export default function PreAcademicPage() {
   const variant = cookies().get(cookieNameFor('pre-academic'))?.value
   const hero = getLandingVariant('pre-academic', variant === 'b' || variant === 'c' ? variant : 'a')
+  const faq = variant === 'c' ? [...FAQ, PRICE_FAQ_ITEM] : FAQ
 
   return (
     <>
-      <UrgencyStrip spotsLeft={4} />
+      <UrgencyStrip />
       <LandingHero {...hero} />
       <LandingStats />
       <LandingBenefits title="למה להתכונן עם Matematic?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
       <TrialCTABlock headline="מגיעים לתואר עם בסיס חזק" variant={variant} />
-      <LandingFAQ items={FAQ} />
+      <LandingFAQ items={faq} />
       <LandingContact
         defaultLevel="pre-academic"
         headline="השאירו פרטים - נבנה תוכנית הכנה מותאמת אישית"
         variant={variant}
       />
-      <WhatsAppButton variant={variant} />
       <StickyMobileCTA variant={variant} />
+      <StickyContactSidebar variant={variant} />
     </>
   )
 }

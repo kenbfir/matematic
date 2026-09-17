@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { getLandingVariant } from '@/lib/landingVariants'
 import { cookieNameFor } from '@/lib/abVariant'
+import { PRICE_FAQ_ITEM } from '@/lib/constants'
 import LandingHero from '@/components/LandingHero'
 import LandingStats from '@/components/LandingStats'
 import LandingBenefits from '@/components/LandingBenefits'
@@ -10,8 +11,8 @@ import TrialCTABlock from '@/components/TrialCTABlock'
 import LandingFAQ from '@/components/LandingFAQ'
 import LandingContact from '@/components/LandingContact'
 import UrgencyStrip from '@/components/UrgencyStrip'
-import WhatsAppButton from '@/components/WhatsAppButton'
 import StickyMobileCTA from '@/components/StickyMobileCTA'
+import StickyContactSidebar from '@/components/StickyContactSidebar'
 
 export const metadata: Metadata = {
   title: 'מורה פרטי למתמטיקה - חטיבת ביניים כיתות ז׳-ט׳ | שיעורים אונליין | Matematic',
@@ -45,31 +46,32 @@ const TESTIMONIALS = [
 
 const FAQ = [
   { question: 'האם השיעורים מתאימים לכיתה ז, ח וגם ט?', answer: 'כן - אני מלמד את כל כיתות חטיבת הביניים. התוכנית מותאמת לחומר הספציפי של הכיתה ולפערים האישיים של הילד.' },
-  { question: 'איך עובד שיעור אונליין לילד?', answer: 'שיעורים ב-Teams עם לוח לבן דיגיטלי - ממש כמו לוח בכיתה, רק על המחשב. הילד מקבל PDF עם כל מה שנלמד בסוף כל שיעור.' },
+  { question: 'איך עובד שיעור אונליין לילד?', answer: 'שיעורים ב-Teams עם שיתוף מסך בזמן אמת - הילד רואה את ההסבר בזמן אמת ומתרגל ישירות, ממש כמו שיעור פרונטלי. בסוף כל שיעור מקבלים PDF עם כל מה שנלמד וגישה להקלטה של השיעור.' },
   { question: 'כמה שיעורים בשבוע מומלץ?', answer: 'בדרך כלל שיעור אחד עד שניים בשבוע, תלוי ברמת הפערים ובמטרות. נקבע ביחד אחרי שיעור ההיכרות.' },
-  { question: 'מה קורה אם הילד מפספס שיעור?', answer: 'ניתן לבטל שיעור עד 24 שעות מראש ללא חיוב. ביטול מאוחר יותר יחויב. כל שיעור מוקלט - הילד תמיד יכול לחזור על החומר.' },
+  { question: 'מה קורה אם הילד מפספס שיעור?', answer: 'ניתן לבטל שיעור עד 24 שעות לפני המועד המתוכנן ללא חיוב. ביטול מאוחר יותר יחויב בתשלום מלא. במקרים חריגים ניתן לתאם שיעור חלופי. כל שיעור גם מוקלט - הילד תמיד יכול לחזור על החומר.' },
 ]
 
 export default function MiddleSchoolPage() {
   const variant = cookies().get(cookieNameFor('middle-school'))?.value
   const hero = getLandingVariant('middle-school', variant === 'b' || variant === 'c' ? variant : 'a')
+  const faq = variant === 'c' ? [...FAQ, PRICE_FAQ_ITEM] : FAQ
 
   return (
     <>
-      <UrgencyStrip spotsLeft={3} />
+      <UrgencyStrip />
       <LandingHero {...hero} />
       <LandingStats />
       <LandingBenefits title="למה הורים בוחרים ב-Matematic לילדים שלהם?" benefits={BENEFITS} />
       <LandingTestimonials testimonials={TESTIMONIALS} />
       <TrialCTABlock headline="רוצים לראות שינוי?" variant={variant} />
-      <LandingFAQ items={FAQ} />
+      <LandingFAQ items={faq} />
       <LandingContact
         defaultLevel="middle-school"
         headline="השאירו פרטים - נתאם שיעור היכרות לילד"
         variant={variant}
       />
-      <WhatsAppButton variant={variant} />
       <StickyMobileCTA variant={variant} />
+      <StickyContactSidebar variant={variant} />
     </>
   )
 }

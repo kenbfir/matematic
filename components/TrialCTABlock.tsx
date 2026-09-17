@@ -22,8 +22,7 @@ export default function TrialCTABlock({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl md:text-4xl font-bold mb-3">{headline}</h2>
-          <p className="text-white/70 mb-8 text-lg">ללא התחייבות להמשך</p>
+          <h2 className="text-2xl md:text-4xl font-bold mb-8">{headline}</h2>
 
           <div className="flex justify-center gap-8 mb-10 flex-wrap">
             <div className="flex items-center gap-2 text-white/80">
